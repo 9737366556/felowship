@@ -78,16 +78,14 @@ public class Utility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^powerOfNumber^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// method for finding the power of base number
-	public static void powerOfNumber(int n, int base) {
+	public static int powerOfNumber(int n, int base) {
+		int power = 1;
 		if (n < 31) {
-			int power = 1;
 			for (int i = 0; i < n; i++) {
 				power *= base;
 			}
-			System.out.println(power);
-		} else {
-			System.out.println("Enter the power of base lesser than 31");
-		}
+		} 
+		return power;
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^harmonicNumber^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,7 +132,7 @@ public class Utility {
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^intTwoDArray^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	// method for reading in 2D arrays of integers from from standard input and
+	// method for reading in 2D arrays of integers from standard input and
 	// printing them
 	public static void intTwoDArray(int m, int n) {
 		int[][] intArray = new int[m][n];// declaring two DArray
@@ -155,7 +153,7 @@ public class Utility {
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^doubleTwoDArray^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	// method for reading in 2D arrays of double from from standard input and
+	// method for reading in 2D arrays of double from standard input and
 	// printing them
 	public static void doubleTwoDArray(int m, int n) {
 		double[][] doubleArray = new double[m][n];// declaring two DArray
@@ -176,7 +174,7 @@ public class Utility {
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^booleanTwoDArray^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	// method for reading in 2D arrays of double from from standard input and
+	// method for reading in 2D arrays of double from standard input and
 	// printing them
 	public static void booleanTwoDArray(int m, int n) {
 		boolean[][] booleanArray = new boolean[m][n];// declaring two DArray
@@ -195,4 +193,54 @@ public class Utility {
 			System.out.println("");
 		}
 	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^sumOfThreeEZero^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// method for count Distinct Triplets which sum equals to zero and print them.
+
+	public static void sumOfThreeEZero(int n) {
+		int[] array = new int[n];
+		int count = 0;
+		System.out.println("Enter array element");
+		for (int i = 0; i < array.length; i++) {
+			array[i] = Utility.integerInput(); //reading input from standerd input using integerInput static function
+		}
+		
+		System.out.println("Distinct Triplets which sum equals to zero");
+		for (int i = 0; i < array.length - 2; i++) {
+			for (int j = i + 1; j < array.length - 1; j++) {
+				for (int k = j + 1; k < array.length; k++) {
+					if (array[i] + array[j] + array[k] == 0) {
+						count++;
+						System.out.println(array[i] + " " + array[j] + " " + array[k]);
+					}
+				}
+			}
+		}
+		System.out.println("Number of Distinct Triplets " + count);
+	}
+	
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^distance^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// method for computing distance
+	public static double distance(int m, int n) {
+		int base=2;
+		return Math.sqrt((Utility.powerOfNumber(base, n) + Utility.powerOfNumber( base,m)));
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^quadraticEquation^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// method for calculation of quadraticEquation
+	public static void quadraticEquation(int a, int b, int c) {
+		int delta = b*b -4*a*c ;
+		if(delta >0) {
+			System.out.println("root are real or different");
+			System.out.println((-b + Math.sqrt(delta))/(2*a));
+			System.out.println((-b - Math.sqrt(delta))/(2*a));
+		}else {
+			System.out.println("root are complex");
+			System.out.println((-b + Math.sqrt(delta))/(2*a));
+			System.out.println((-b - Math.sqrt(delta))/(2*a));
+		}
+	}
+	
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^sumOfThreeEZero^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	
 }

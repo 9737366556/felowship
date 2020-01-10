@@ -17,6 +17,6 @@ public class PowerOfTwo {
 		System.out.println("Enter the power of the base lesser than 31");
 		int n=Utility.integerInput();//taking input from user using integerInput() of Utility class
 	
-		Utility.powerOfNumber(n , base);// calling powerOfTwo() from Utility class 
+		System.out.println(Utility.powerOfNumber(n , base));// calling powerOfTwo() from Utility class 
 	}
 }
