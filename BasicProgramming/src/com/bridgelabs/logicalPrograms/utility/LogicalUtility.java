@@ -1,5 +1,7 @@
 package com.bridgelabs.logicalPrograms.utility;
 
+import com.bridgelabs.basicProgramming.utility.Utility;
+
 /**
  * Purpose: code reusability
  * 
@@ -20,9 +22,9 @@ public class LogicalUtility {
 			while (amount > 0 && amount < goal) {
 				bets++;
 				if (Math.random() < 0.5) { // for getting n number of random number
-					amount++; //he/she won the money so his/her money will increase
+					amount++; // he/she won the money so his/her money will increase
 				} else {
-					amount--; //he/she loss the money so his/her money will decrease
+					amount--; // he/she loss the money so his/her money will decrease
 				}
 			}
 			if (amount == goal) { // gambeler will won one game
@@ -31,32 +33,57 @@ public class LogicalUtility {
 		}
 		double percentage = (won * 100.0) / n; // finding percentage of winning the bet
 		double avgBets = bets / n; // finding average bet of the wall games
-		System.out.println("out of " + n + " time gambler will won " + won + " time"); 
+		System.out.println("out of " + n + " time gambler will won " + won + " time");
 		System.out.println("Percent of games won = " + percentage); // printing percentage of winning
 		System.out.println("Avg bets  = " + avgBets); // printing average bets of the total games
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^distingCoupenNumber^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	// function To generate disting coupen of n number 
+	// function To generate disting coupen of n number
 
 	public static void distingCoupenNumber(int n) {
-		String s= "abcdefghijklmnopqrstuvwxyz123456789";
-		char[] chars =s.toCharArray(); 
+		String s = "abcdefghijklmnopqrstuvwxyz123456789";
+		char[] chars = s.toCharArray();
 		int maximum = 1000000000;
 
-		StringBuffer sb = new StringBuffer(); //creating String buffer object
+		StringBuffer sb = new StringBuffer(); // creating String buffer object
 
-		for (int i = 0; i < n; i++) { //for n time inner function working
+		for (int i = 0; i < n; i++) { // for n time inner function working
 			int random = (int) (Math.random() * maximum);
 			while (random > 0) {
-				sb.append(chars[random % chars.length]); //for adding one one character in StringBuffer
-				random /= chars.length; 
+				sb.append(chars[random % chars.length]); // for adding one one character in StringBuffer
+				random /= chars.length;
 			}
 
 			System.out.println("Coupon Code: " + sb); // printing String object
-			int m = sb.length(); //finding length of string Object
+			int m = sb.length(); // finding length of string Object
 			sb.delete(0, m); // delet all character of String object
 
 		}
 	}
+	
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^elapseStopwatch^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function To calculate elapse time of stopwtch
+
+	public static void elapseStopwatch() {
+		System.out.println("chose any one from below");
+		System.out.println(
+				"1.Elapse time between start and end click \n2.elapse time between start, pause, resume and end click");
+		int n = Utility.integerInput(); //creating 2 case for different requirement of user
+		switch (n) {
+		case 1:
+			System.out.println(Utility.elapseStartEnd()); // elapse time for only start and end click
+			break;
+		case 2:
+			System.out.println(Utility.elapseStartPauseEnd()); //elapse time fore start, pause, resume and end click
+			break;
+		default:
+			System.out.println("no such function found");
+			break;
+		}
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^distingCoupenNumber^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function To generate disting coupen of n number
+
 }

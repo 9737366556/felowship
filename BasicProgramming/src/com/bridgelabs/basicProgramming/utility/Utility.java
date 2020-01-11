@@ -84,7 +84,7 @@ public class Utility {
 			for (int i = 0; i < n; i++) {
 				power *= base;
 			}
-		} 
+		}
 		return power;
 	}
 
@@ -202,9 +202,9 @@ public class Utility {
 		int count = 0;
 		System.out.println("Enter array element");
 		for (int i = 0; i < array.length; i++) {
-			array[i] = Utility.integerInput(); //reading input from standerd input using integerInput static function
+			array[i] = Utility.integerInput(); // reading input from standerd input using integerInput static function
 		}
-		
+
 		System.out.println("Distinct Triplets which sum equals to zero");
 		for (int i = 0; i < array.length - 2; i++) {
 			for (int j = i + 1; j < array.length - 1; j++) {
@@ -218,29 +218,64 @@ public class Utility {
 		}
 		System.out.println("Number of Distinct Triplets " + count);
 	}
-	
+
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^distance^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// method for computing distance
 	public static double distance(int m, int n) {
-		int base=2;
-		return Math.sqrt((Utility.powerOfNumber(base, n) + Utility.powerOfNumber( base,m)));
+		int base = 2;
+		return Math.sqrt((Utility.powerOfNumber(base, n) + Utility.powerOfNumber(base, m)));
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^quadraticEquation^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// method for calculation of quadraticEquation
 	public static void quadraticEquation(int a, int b, int c) {
-		int delta = b*b -4*a*c ;
-		if(delta >0) {
+		int delta = b * b - 4 * a * c;
+		if (delta > 0) {
 			System.out.println("root are real or different");
-			System.out.println((-b + Math.sqrt(delta))/(2*a));
-			System.out.println((-b - Math.sqrt(delta))/(2*a));
-		}else {
+			System.out.println((-b + Math.sqrt(delta)) / (2 * a));
+			System.out.println((-b - Math.sqrt(delta)) / (2 * a));
+		} else {
 			System.out.println("root are complex");
-			System.out.println((-b + Math.sqrt(delta))/(2*a));
-			System.out.println((-b - Math.sqrt(delta))/(2*a));
+			System.out.println((-b + Math.sqrt(delta)) / (2 * a));
+			System.out.println((-b - Math.sqrt(delta)) / (2 * a));
 		}
 	}
-	
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^currentTime^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// method for start Time in millisecond
+	public static long nowTime() {
+		int n = Utility.integerInput(); 
+		return System.currentTimeMillis(); // return current time at the time of compilation
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^elapsesTime^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function To measuring the time that elapses between the start and end clicks
+	public static double elapseStartEnd() {
+		System.out.println("press any number for start time");
+		long start = Utility.nowTime();
+		System.out.println("press any number for end time");
+		long end = Utility.nowTime();
+		double elapse = (end - start)/1000.0; //count elapse time = end time -start time
+		return elapse; // return elapse time
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^elapsesTime^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function To measuring the time that elapses between the start, pause, resume
+	// and end clicks
+	public static double elapseStartPauseEnd() {
+		System.out.println("press any number for startTime time");
+		long start = Utility.nowTime();
+		System.out.println("press any number for pause time");
+		long pause = Utility.nowTime();
+		System.out.println("press any number for resume time");
+		long resume = Utility.nowTime();
+		System.out.println("press any number for endTime time");
+		long end = Utility.nowTime();
+		long pauseTime=resume - pause; // count total pauseTime =resume time - pause time
+		double elapse = (end - pauseTime - start)/1000.0;  //count elapse time = end time - pauseTime -start time
+		return elapse; // return elapse time
+	}
+
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^sumOfThreeEZero^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	
+
 }
