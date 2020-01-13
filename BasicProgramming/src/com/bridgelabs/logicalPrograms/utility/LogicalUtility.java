@@ -61,7 +61,7 @@ public class LogicalUtility {
 
 		}
 	}
-	
+
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^elapseStopwatch^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function To calculate elapse time of stopwtch
 
@@ -69,18 +69,29 @@ public class LogicalUtility {
 		System.out.println("chose any one from below");
 		System.out.println(
 				"1.Elapse time between start and end click \n2.elapse time between start, pause, resume and end click");
-		int n = Utility.integerInput(); //creating 2 case for different requirement of user
+		int n = Utility.integerInput(); // creating 2 case for different requirement of user
 		switch (n) {
 		case 1:
 			System.out.println(Utility.elapseStartEnd()); // elapse time for only start and end click
 			break;
 		case 2:
-			System.out.println(Utility.elapseStartPauseEnd()); //elapse time fore start, pause, resume and end click
+			System.out.println(Utility.elapseStartPauseEnd()); // elapse time fore start, pause, resume and end click
 			break;
 		default:
 			System.out.println("no such function found");
 			break;
 		}
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^dayOfWeek^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function To find day of week
+	public static int dayOfWeek(short d, short m, short y) {
+		int year = y - (14 - m) / 12;
+		int x = year + year / 4 - year / 100 + year / 400;
+		int month = m + 12 * ((14 - m) / 12) - 2;
+
+		int day = (d + x + (31 * month) / 12) % 7;
+		return day;
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^distingCoupenNumber^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

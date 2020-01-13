@@ -1,7 +1,5 @@
 package com.bridgelabs.basicProgramming.utility;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -12,10 +10,14 @@ import java.util.Scanner;
  */
 public class Utility {
 
-	InputStreamReader iSR = new InputStreamReader(System.in);
-	BufferedReader br = new BufferedReader(iSR);
+	
 	static Scanner s = new Scanner(System.in);
 
+	// method for reading standerd input of type short
+	public static short shortInput() {
+		return s.nextShort();// method for tasking short input from user
+	}
+	
 	// method for reading standerd input of type integer
 	public static int integerInput() {
 		return s.nextInt();// method for tasking integer input from user
@@ -23,19 +25,24 @@ public class Utility {
 
 	// method for reading standerd input of type double
 	public static double doubleInput() {
-		return s.nextDouble();// method for tasking double input from user
+		return s.nextDouble();// method for taking double input from user
 	}
 
 	// method for reading standerd input of type boolean
 	public static boolean booleanInput() {
-		return s.nextBoolean();// method for tasking boolean input from user
+		return s.nextBoolean();// method for taking boolean input from user
 	}
 
-	// method for reading standerd input of type integer
+	// method for reading standerd input of type String
 	public static String stringInput() {
-		return s.nextLine();// method for tasking String input from user
+		return s.nextLine();// method for taking String input from user
 	}
 
+	// method for reading standerd input of type character
+	public static char characterInput() {
+		return s.next().charAt(0); // method for taking character input from user
+	}
+	
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^replaceString^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// Method for replacing a perticular word of string
 	public static void replaceString(String line, String replace, String addAtReplace) {
@@ -275,6 +282,10 @@ public class Utility {
 		double elapse = (end - pauseTime - start)/1000.0;  //count elapse time = end time - pauseTime -start time
 		return elapse; // return elapse time
 	}
+
+	
+
+	
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^sumOfThreeEZero^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
