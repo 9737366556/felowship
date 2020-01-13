@@ -10,17 +10,21 @@ import java.util.Scanner;
  */
 public class Utility {
 
-	
 	static Scanner s = new Scanner(System.in);
 
 	// method for reading standerd input of type short
 	public static short shortInput() {
 		return s.nextShort();// method for tasking short input from user
 	}
-	
+
 	// method for reading standerd input of type integer
 	public static int integerInput() {
 		return s.nextInt();// method for tasking integer input from user
+	}
+
+	// method for reading standerd input of type float
+	public static float floatInput() {
+		return s.nextFloat();// method for taking float input from user
 	}
 
 	// method for reading standerd input of type double
@@ -42,7 +46,7 @@ public class Utility {
 	public static char characterInput() {
 		return s.next().charAt(0); // method for taking character input from user
 	}
-	
+
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^replaceString^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// Method for replacing a perticular word of string
 	public static void replaceString(String line, String replace, String addAtReplace) {
@@ -251,7 +255,7 @@ public class Utility {
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^currentTime^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// method for start Time in millisecond
 	public static long nowTime() {
-		int n = Utility.integerInput(); 
+		int n = Utility.integerInput();
 		return System.currentTimeMillis(); // return current time at the time of compilation
 	}
 
@@ -262,7 +266,7 @@ public class Utility {
 		long start = Utility.nowTime();
 		System.out.println("press any number for end time");
 		long end = Utility.nowTime();
-		double elapse = (end - start)/1000.0; //count elapse time = end time -start time
+		double elapse = (end - start) / 1000.0; // count elapse time = end time -start time
 		return elapse; // return elapse time
 	}
 
@@ -278,15 +282,94 @@ public class Utility {
 		long resume = Utility.nowTime();
 		System.out.println("press any number for endTime time");
 		long end = Utility.nowTime();
-		long pauseTime=resume - pause; // count total pauseTime =resume time - pause time
-		double elapse = (end - pauseTime - start)/1000.0;  //count elapse time = end time - pauseTime -start time
+		long pauseTime = resume - pause; // count total pauseTime =resume time - pause time
+		double elapse = (end - pauseTime - start) / 1000.0; // count elapse time = end time - pauseTime -start time
 		return elapse; // return elapse time
 	}
 
-	
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^temperaturConversion^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// Function to calculate temperature given in Fahrenheit convert it into Celsius
+	// or given in Celsius than convert it into Fahrenheit
+	public static void temperaturConversion(double temperatur) {
 
-	
+		System.out.println("chose the given input is in");
+		System.out.println("1.Fahrenheit \t 2.Celsius");
+		char input = Utility.characterInput();
+		switch (input) {
+		case '1':
+			double fTC = (temperatur - 32) * 5 / 9;
+			System.out.println(temperatur + " Celsius =" + fTC + " Fahrenheit");
+			break;
+		case '2':
+			double cTF = (temperatur * 9 / 5) + 32;
+			System.out.println(temperatur + " Fahrenheit =" + cTF + " Celsius");
+			break;
+		default:
+			System.out.println("no such choise is available");
+			break;
+		}
+	}
 
-	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^sumOfThreeEZero^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^monthlyPayment^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// fuction to calculate monthly payment
+	public static void monthlyPayment(double p, double y, double r) {
+
+		double n = 12 * y;
+		double rate = r / (12 * 100);
+		double payment = (p * rate) / (1 - Math.pow((1 + rate), -n));
+		System.out.println("total monthly payment =" + payment);
+
+		/*
+		 * double n = 12 * y; double rate = r / (12 * 100); double payment = (p * rate)
+		 * * (1 - (Math.pow(1 + rate, -n))); double total = p / (y * 12); double result
+		 * = total + payment; System.out.println(result);
+		 */
+
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^squreRoot^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to calculate squreRoot using Newton Method
+	public static void squreRoot(double c) {
+		double t = c;
+		double epsilon = 1e-15;
+
+		while (Math.abs(t - c / t) > epsilon * t) { // using absulate funcion of math class and perform given condition
+			t = (c / t + t) / 2.0; // storing avg of c/t and t into t
+		}
+		System.out.println(t);
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^toBinary^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to find binary represantion of given decimal number
+	public static void toBinary(int num) {
+		StringBuffer s = new StringBuffer(8); // StringBuffer object to store binary represantation
+		while (num > 0) {
+			s.insert(0, num % 2);
+			num = num / 2;
+		}
+		while (s.length() < 8) { // converting object into 8bit formate
+			s.insert(0, 0);
+		}
+		System.out.println(s);
+
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^swapNibbles^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to find nibbles of the given String
+	public static void swapNibbles(int n) {
+		int num = ((n & 0x0F) << 4 | (n & 0xF0) >> 4); // using 0F to & whose value is 0000 1111 to preserve
+		// right side or F0 to & whose value is 1111 0000 to preserve left side
+		System.out.println("New no is: " + num); // bits and left shifting them by 4
+		Utility.toBinary(num); // using F0 to & whose value is 1111 0000 to preserve left side
+		int count = 0;
+		for (int i = 0; i < 8; i++) {
+			if (num == Math.pow(2, i))
+				count++;
+		}
+		if(count >0)
+			System.out.println("the new number is power of 2");
+		else
+			System.out.println("The new number is not power of 2");
+	}
 
 }

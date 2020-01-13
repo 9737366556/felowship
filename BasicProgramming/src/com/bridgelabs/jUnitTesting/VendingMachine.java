@@ -2,6 +2,12 @@ package com.bridgelabs.jUnitTesting;
 
 import com.bridgelabs.basicProgramming.utility.Utility;
 
+/**
+ * Purpose:To find the Fewest Notes to be returned from Vending Machine
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class VendingMachine {
 
 	public static void main(String[] args) {

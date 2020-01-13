@@ -3,6 +3,12 @@ package com.bridgelabs.jUnitTesting;
 import com.bridgelabs.basicProgramming.utility.Utility;
 import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
 
+/**
+ * Purpose:To find the day of week on the basis of given date
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class DayOfWeek {
 
 	public static void main(String[] args) {
