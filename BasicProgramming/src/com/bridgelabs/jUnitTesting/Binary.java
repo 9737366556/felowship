@@ -11,9 +11,16 @@ import com.bridgelabs.basicProgramming.utility.Utility;
  */
 public class Binary {
 	public static void main(String[] args) {
-		System.out.println("Emter decimal number");
-		int n = Utility.integerInput();
+		try {
+			System.out.println("Emter decimal number");
+			int n = Utility.integerInput();
 
-		Utility.swapNibbles(n);
+			Utility.swapNibbles(n);
+		} catch (Exception e) {
+			System.err.println("you have an exception in main function of Binary " + e.getClass());
+		}
+
+		System.out.println("enter decimal number");
+		System.out.println("main function of Binary class is ended");
 	}
 }
