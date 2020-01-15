@@ -1,8 +1,8 @@
 package com.bridgelabs.logicalPrograms.programs;
 
+import java.util.Arrays;
+
 import com.bridgelabs.basicProgramming.utility.Utility;
-
-
 
 /**
  * Purpose : Entertainment of User with TicTacToeGame
@@ -14,17 +14,17 @@ public class TicTacToeGame {
 
 	public static final int X = 1, O = -1;
 	public static final int EMPTY = 0;
-	public int PLAYER = X;
+	public int player = X;
 	private int[][] board = new int[3][3];
 	public boolean isEmpty = false;
-	static int n=0;
-	static StringBuffer input=new StringBuffer();
-	
+	static int n = 0;
+	static StringBuffer input = new StringBuffer();
+
 	public TicTacToeGame() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean isWin(int PLAYER) { 									// defining all winning possibilities of both user
+	public boolean isWin(int PLAYER) { // defining all winning possibilities of both user
 		return ((board[0][0] + board[0][1] + board[0][2] == PLAYER * 3)
 				|| (board[1][0] + board[1][1] + board[1][2] == PLAYER * 3)
 				|| (board[2][0] + board[2][1] + board[2][2] == PLAYER * 3)
@@ -55,42 +55,42 @@ public class TicTacToeGame {
 			return;
 		}
 		if (n != EMPTY) {
-			System.out.println("Position is already occupied");
+			System.out.println("Position is occupied");
 
 		}
 		if (n > 0 || n < 10 || n == EMPTY) {
 			switch (n) {
 			case 1:
-				board[0][0] = PLAYER;
+				board[0][0] = player;
 				break;
 			case 2:
-				board[0][1] = PLAYER;
+				board[0][1] = player;
 				break;
 			case 3:
-				board[0][2] = PLAYER;
+				board[0][2] = player;
 				break;
 			case 4:
-				board[1][0] = PLAYER;
+				board[1][0] = player;
 				break;
 			case 5:
-				board[1][1] = PLAYER;
+				board[1][1] = player;
 				break;
 			case 6:
-				board[1][2] = PLAYER;
+				board[1][2] = player;
 				break;
 			case 7:
-				board[2][0] = PLAYER;
+				board[2][0] = player;
 				break;
 			case 8:
-				board[2][1] = PLAYER;
+				board[2][1] = player;
 				break;
 			case 9:
-				board[2][2] = PLAYER;
+				board[2][2] = player;
 				break;
 			default:
 				System.out.println("invalid input!!");
 			}
-			PLAYER = -PLAYER; // after first players input changing player
+			player = -player; // after first players input changing player
 		}
 	}
 
@@ -126,10 +126,11 @@ public class TicTacToeGame {
 
 	public static void main(String[] args) {
 		TicTacToeGame t = new TicTacToeGame();
+		int i = 0;
 		do {
-			System.out.println(t.PLAYER == X ? "Player X turn" : "Player O turn"); // checking the player
+			System.out.println(t.player == X ? "Player X turn" : "Player O turn"); // checking the player
 			System.out.print("Enter posotion 1 to 9: ");
-			 n = Utility.integerInput(); // taking position input from user
+			n = Utility.integerInput(); // taking position input from user
 
 			t.position(n);
 

@@ -1,5 +1,10 @@
 package com.bridgelabs.logicalPrograms.utility;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+
 import com.bridgelabs.basicProgramming.utility.Utility;
 
 /**
@@ -92,6 +97,35 @@ public class LogicalUtility {
 
 		int day = (d + x + (31 * month) / 12) % 7;
 		return day;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^fileRead^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function To read data from file and Store into word list
+	public static void fileReadBinarySearch(String file) {
+		BufferedReader br = null;
+		try {
+			System.out.println("enter word for search");
+			String word = Utility.stringInput();
+			br = new BufferedReader(new FileReader(file));
+			String line;
+			String[] words;
+			int find = 0;
+			System.out.print(word +" find at posion :");
+			while ((line = br.readLine()) != null) {
+				words = Utility.splitS(' ', line);
+				Arrays.sort(words);
+				int first = 0;
+				int last = words.length;
+
+				find = Utility.binarySearch(word, words, first, last);
+				if (find != -1) {
+					System.out.print(find + ", ");
+				}
+			}
+		} catch (IOException e) {
+			System.err.println("you hava an exception in main function of BinarySearch " + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^distingCoupenNumber^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

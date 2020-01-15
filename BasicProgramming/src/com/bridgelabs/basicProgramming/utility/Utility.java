@@ -455,42 +455,123 @@ public class Utility {
 				System.out.println("The new number is not power of 2");
 
 		} catch (Exception e) {
-			System.err.println("you have an exception in swapNibbles function of Utility " + e.getClass());
+			System.err.println("you have an exception in swapNibbles function of countCharacter " + e.getClass());
+		}
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to count a character from the String
+	public static int countCharacter(char c, String str) {
+		int count = 0;
+		try {
+			char[] ch = str.toCharArray();
+			for (int i = 0; i < ch.length; i++) {
+				if (ch[i] == ' ') {
+					count++;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(
+					"you have an exception in countCharacter function of countCharacter class " + e.getMessage());
+		}
+		return count;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to saperate word from String
+	public static String[] splitS(char c, String str) {
+
+		char[] array = str.toCharArray();
+		int count = Utility.countCharacter(' ', str);
+		int j = 0;
+
+		StringBuffer ab = new StringBuffer();
+		String[] words = new String[count + 1];
+		count = 0;
+		try {
+			for (int i = 0; i < array.length; i++) {
+				char[] a = new char[j + 1];
+				if (array[i] == c) {
+					words[count] = new String(ab);
+					ab.delete(0, j);
+					count += 1;
+					j = 0;
+				} else {
+					a[j] = array[i];
+					ab.append(a[j]);
+					j++;
+				}
+				if (i == array.length - 1) {
+					words[count] = new String(ab);
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println("you have an exception in countCharacter function of splitS class " + e.getMessage());
+		}
+		return words;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to saperate word from String
+	public static int binarySearch(String word, String[] line, int first, int last) {
+		try {
+			while (first <= last) {
+				int mid = first + (last - first) / 2;
+				int res = word.compareTo(line[mid]);
+				if (res == 0) {
+					return mid;
+				} else if (res > 0) {
+					first = mid + 1;
+				} else {
+					last = mid - 1;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return -1;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^bubbleSort^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to sort String array using bubble sort
+	public static void bubbleSort(String line) {
+		String[] words = Utility.splitS(' ', line); // converting String into string array
+		String temp = "";
+		for (int i = 0; i < words.length; ++i) {
+			for (int j = i + 1; j < words.length; j++) {
+				if (words[i].compareTo(words[j]) > 0) { // comparing two word with the help of compareto method
+					temp = words[i];
+					words[i] = words[j];
+					words[j] = temp;
+				}
+			}
+		}
+		for (int i = 0; i < words.length; i++) {
+			System.out.print(words[i] + " ");
+		}
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^insertionSort^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to sort String array using bubble sort
+	public static void insertionSort(String line) {
+		String[] words = Utility.splitS(' ', line); // converting String into string array
+		String temp = "";
+		for (int i = 0; i < words.length; i++) {
+			String word = words[i];
+			int j = i;
+			while (j > 0 && words[j - 1].compareTo(word) > 1) {
+				words[j] = words[j - 1];
+				j--;
+			}
+			words[j]=word;
+		}
+		for (int i = 0; i < words.length; i++) {
+			System.out.print(words[i] + " ");
 		}
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to saperate word from String
-	public static void splitS() {
-		String str = "i am bridge";
-		int count = 0;
-		int j = 0;
-		StringBuffer ab = new StringBuffer();
-		StringBuffer[] s =new StringBuffer[1];
-		char[] array = str.toCharArray();
-		for (int i = 0; i < array.length; i++) {
-			s= new StringBuffer[count + 1];
-			char[] a = new char[j + 1];
-			if (array[i] == ' ') {
-				System.out.println("if condition");
-				s[count] = ab;
 
-				System.out.println(" " + s[count]);
-				ab.delete(0, j);
-				count++;
-				j = 0;
-				System.out.println("if contion finished");
-			} else {
-				// System.out.println("else condition");
-				a[j] = array[i];
-				ab.append(a[j]);
-				System.out.print(a[j]);
-				j++;
-			}
-		}
-		System.out.println();
-		for (int i = 0; i < s.length; i++) {
-			System.out.print(s[i]);
-		}
-	}
 }

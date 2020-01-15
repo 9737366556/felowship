@@ -2,7 +2,16 @@ package com.bridgelabs.algorithmPrograms;
 
 import com.bridgelabs.basicProgramming.utility.Utility;
 
+
+/**
+ * Purpose: To find all the possible permutations of the word
+ * 
+ * 
+ * @author bridgeit
+ *
+ */
 public class Permutations {
+	//function to Swap the character for changing the first position 
 	public static String swapString(String a, int i, int j) {
 		
 		char[] b = a.toCharArray();
