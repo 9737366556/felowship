@@ -1,5 +1,6 @@
 package com.bridgelabs.basicProgramming.utility;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -422,7 +423,7 @@ public class Utility {
 	// function to find binary represantion of given decimal number
 	public static void toBinary(int num) {
 		try {
-			StringBuffer s = new StringBuffer(8); // StringBuffer object to store binary represantation
+			StringBuffer  s = new StringBuffer(8); // StringBuffer object to store binary represantation
 			while (num > 0) {
 				s.insert(0, num % 2);
 				num = num / 2;
@@ -459,7 +460,7 @@ public class Utility {
 		}
 	}
 
-	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^countCharacter^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to count a character from the String
 	public static int countCharacter(char c, String str) {
 		int count = 0;
@@ -564,14 +565,147 @@ public class Utility {
 				words[j] = words[j - 1];
 				j--;
 			}
-			words[j]=word;
+			words[j] = word;
 		}
 		for (int i = 0; i < words.length; i++) {
 			System.out.print(words[i] + " ");
 		}
 	}
 
-	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	// function to saperate word from String
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^anagramDetection^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to check String is anagram or not for String
+	public static Boolean anagramDetection(String s1, String s2) {
+		boolean valid = false;
+		try {
+			char[] ch1 = s1.toCharArray();
+			char[] ch2 = s2.toCharArray();
+			Arrays.sort(ch1);
+			Arrays.sort(ch2);
 
+			if (ch1.length == ch2.length) {
+				int n = ch1.length;
+				for (int i = 0; i < n; i++) {
+					if (ch1[i] == ch2[i]) {
+						valid = true;
+					}
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return valid;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^primeNumber^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to check the number is prime or note
+	public static boolean primeNumber(int n) {
+
+		boolean number = false;
+		try {
+			int num = 0;
+			if (n != 0 && n != 1) {
+				int mid = n / 2;
+				if (n != 2) {
+					for (int i = 2; i <= mid; i++) {
+						if (n % i == 0) {
+							num++;
+						}
+					}
+				}
+				if (num == 0) {
+					number = true;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return number;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^primeNumberRange^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to find the range of prime numbers
+	public static void primeNumberRange(int n) {
+		try {
+			for (int i = 2; i <= n; i++) {
+				boolean number = Utility.primeNumber(i);
+				if (number) {
+					System.out.print(i + " ");
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^intToCharacter^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to convert number into character arrray
+	public static int[] intToArray(int i) {
+
+		int n = 0;
+		int[] arr = new int[n + 1];
+		try {
+			if (i / 10 == 0) {
+				arr[n] = i % 10;
+			}
+			while (i / 10 > 0) {
+				arr = new int[n + 1];
+				arr[n] = i % 10;
+
+				n++;
+				i = i / 10;
+				if (i / 10 == 0) {
+					arr = new int[n + 1];
+					arr[n] = i % 10;
+
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return arr;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^anagramDetection^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to check String is anagram or not for int array
+	public static Boolean anagramDetection(int[] arr1, int[] arr2) {
+		boolean valid = false;
+		try {
+			Arrays.sort(arr1); // sort the array
+			Arrays.sort(arr2); // sort the array
+
+			if (arr1.length == arr2.length) {
+				int n = arr1.length;
+				for (int i = 0; i < n; i++) {
+					if (arr1[i] == arr2[i]) {
+						valid = true;
+					}
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return valid;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^pelindrom^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to check number is pelindrom or not
+	public static boolean palindrom(int i) {
+		boolean valid = false;
+		int n = i;
+		int reminder = 0;
+		int sum = 0;
+		try {
+			while (i > 0) {
+				reminder = i % 10;
+				sum = (sum * 10) + reminder;
+				i = i / 10;
+			}
+			if (sum == n) {
+				valid = true;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return valid;
+	}
 }

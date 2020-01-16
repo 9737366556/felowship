@@ -1,7 +1,5 @@
 package com.bridgelabs.logicalPrograms.programs;
 
-import java.util.Arrays;
-
 import com.bridgelabs.basicProgramming.utility.Utility;
 
 /**
@@ -25,14 +23,19 @@ public class TicTacToeGame {
 	}
 
 	public boolean isWin(int PLAYER) { // defining all winning possibilities of both user
-		return ((board[0][0] + board[0][1] + board[0][2] == PLAYER * 3)
-				|| (board[1][0] + board[1][1] + board[1][2] == PLAYER * 3)
-				|| (board[2][0] + board[2][1] + board[2][2] == PLAYER * 3)
-				|| (board[0][0] + board[1][0] + board[2][0] == PLAYER * 3)
-				|| (board[0][1] + board[1][1] + board[2][1] == PLAYER * 3)
-				|| (board[0][2] + board[1][2] + board[2][2] == PLAYER * 3)
-				|| (board[0][0] + board[1][1] + board[2][2] == PLAYER * 3)
-				|| (board[2][0] + board[1][1] + board[0][2] == PLAYER * 3));
+		boolean win=false;
+		for (int i = 0; i < board.length; i++) {
+			if(board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] !=' ') {
+				win=true;
+			}
+			else if(board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+				win=true;
+			}
+			else if(board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+				win=true;
+			}
+		}
+		return win;
 	}
 
 	public void displayWinner() {
