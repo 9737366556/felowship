@@ -7,7 +7,7 @@ import com.bridgelabs.basicProgramming.utility.Utility;
  * Purpose: To find prime number in between given range
  * 
  * 
- * @author bridgeit
+ * @author Nikunj Balar
  *
  */
 public class Primenumbers {
@@ -15,7 +15,7 @@ public class Primenumbers {
 		try {
 			System.out.println("enter the last number you want to search");
 			int n = Utility.integerInput();
-			Utility.primeNumberRange(n);
+			Utility.primeNumberRange(n); // print a all prime number beetween the range
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

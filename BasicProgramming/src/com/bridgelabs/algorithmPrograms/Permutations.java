@@ -7,7 +7,7 @@ import com.bridgelabs.basicProgramming.utility.Utility;
  * Purpose: To find all the possible permutations of the word
  * 
  * 
- * @author bridgeit
+ * @author Nikunj Balar
  *
  */
 public class Permutations {

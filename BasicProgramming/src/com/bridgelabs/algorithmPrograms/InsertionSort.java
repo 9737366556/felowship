@@ -14,7 +14,9 @@ public class InsertionSort {
 		try {
 			System.out.println("Enter String Line");
 			String line = Utility.stringInput(); 
-			Utility.insertionSort(line);
+			String []s=Utility.insertionSort(line); //return sorted String Array
+			for (String str : s) // printing array
+				System.out.println(str);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

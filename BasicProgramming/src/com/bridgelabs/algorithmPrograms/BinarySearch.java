@@ -16,7 +16,8 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		try {
 			String file = "/home/bridgeit/Desktop/list.txt"; // path of txt file
-			LogicalUtility.fileReadBinarySearch(file);
+			LogicalUtility.fileReadBinarySearch(file);  // print the word if forund
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

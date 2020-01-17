@@ -1,7 +1,12 @@
 package com.bridgelabs.basicProgramming.utility;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * Purpose: For code reusability
@@ -46,6 +51,16 @@ public class Utility {
 	// method for reading standerd input of type character
 	public static char characterInput() throws NumberFormatException {
 		return s.next().charAt(0); // method for taking character input from user
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^intArrayInput^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// Method for read standerd input from user
+	public static int[] intArrayInput(int n) {
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = integerInput();
+		}
+		return arr;
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^replaceString^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -423,7 +438,7 @@ public class Utility {
 	// function to find binary represantion of given decimal number
 	public static void toBinary(int num) {
 		try {
-			StringBuffer  s = new StringBuffer(8); // StringBuffer object to store binary represantation
+			StringBuffer s = new StringBuffer(8); // StringBuffer object to store binary represantation
 			while (num > 0) {
 				s.insert(0, num % 2);
 				num = num / 2;
@@ -462,10 +477,10 @@ public class Utility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^countCharacter^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to count a character from the String
-	public static int countCharacter(char c, String str) {
+	public static <T> int countCharacter(char c, T line) {
 		int count = 0;
 		try {
-			char[] ch = str.toCharArray();
+			char[] ch = ((String) line).toCharArray();
 			for (int i = 0; i < ch.length; i++) {
 				if (ch[i] == ' ') {
 					count++;
@@ -480,10 +495,10 @@ public class Utility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to saperate word from String
-	public static String[] splitS(char c, String str) {
+	public static <T> String[] splitS(char c, T line) {
 
-		char[] array = str.toCharArray();
-		int count = Utility.countCharacter(' ', str);
+		char[] array = ((String) line).toCharArray();
+		int count = Utility.countCharacter(' ', line);
 		int j = 0;
 
 		StringBuffer ab = new StringBuffer();
@@ -513,8 +528,8 @@ public class Utility {
 		return words;
 	}
 
-	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^splitS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	// function to saperate word from String
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^binarySearch^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to Search word from file
 	public static int binarySearch(String word, String[] line, int first, int last) {
 		try {
 			while (first <= last) {
@@ -555,7 +570,7 @@ public class Utility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^insertionSort^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to sort String array using bubble sort
-	public static void insertionSort(String line) {
+	public static <T> String[] insertionSort(T line) {
 		String[] words = Utility.splitS(' ', line); // converting String into string array
 		String temp = "";
 		for (int i = 0; i < words.length; i++) {
@@ -567,9 +582,7 @@ public class Utility {
 			}
 			words[j] = word;
 		}
-		for (int i = 0; i < words.length; i++) {
-			System.out.print(words[i] + " ");
-		}
+		return words;
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^anagramDetection^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -627,7 +640,7 @@ public class Utility {
 	public static void primeNumberRange(int n) {
 		try {
 			for (int i = 2; i <= n; i++) {
-				boolean number = Utility.primeNumber(i);
+				boolean number = Utility.primeNumber(i); // return true if number is prime
 				if (number) {
 					System.out.print(i + " ");
 				}
@@ -708,4 +721,131 @@ public class Utility {
 		}
 		return valid;
 	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ bubbleSort using generic
+	// ^^^^^^^^^^^^^^^^^^^^^^//
+	// function to bubblesort using generic
+	public static <T extends Comparable<T>> T[] bubbleSort(T[] words) {
+		try {
+			T temp;
+			for (int i = 0; i < words.length; ++i) {
+				for (int j = i + 1; j < words.length; j++) {
+					if (words[i].compareTo(words[j]) > 0) { // comparing two word with the help of compareto method
+						temp = words[i];
+						words[i] = words[j];
+						words[j] = temp;
+					}
+				}
+			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+		return words;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ binarySearch Generic
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+	// function to Search word from file uding generic
+	public static <T extends Comparable<T>> int binarySearchGen(T word, T[] line, int first, int last) {
+		try {
+			while (first <= last) {
+				int mid = first + (last - first) / 2;
+				int res = word.compareTo(line[mid]);
+				if (res == 0) {
+					return mid;
+				} else if (res > 0) {
+					first = mid + 1;
+				} else {
+					last = mid - 1;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return -1;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^binarySearchIneger^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to find the number
+	public static int binarySearchIneger(int[] numbers, int small, int big) {
+		try {
+			if (small <= big) {
+				int mid = small + (big - small) / 2;
+				System.out.println("The number was " + numbers[mid]);
+				System.out.println("if the number was bigger than your number than press 1 else press 2");
+				int a = Utility.integerInput();
+				if (a == 1) {
+					return binarySearchIneger(numbers, small, mid);
+				} else if (a == 2) {
+					return binarySearchIneger(numbers, mid + 1, big);
+				} else
+					return mid;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+		}
+		return -1;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^curruntDate^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to print currunt date in dd/MM/yyyy formate
+	public static String curruntDate() {
+		String strDate = "";
+		try {
+			Date date = new Date(); // creating date instance
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); // setting dtae formate
+			strDate = dateFormat.format(date);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return strDate;
+	}
+
+	public static String getYourMSG(String name, String fullName, String phoneNumber) {
+		String s1 = "", s2 = "", s3 = "", s4 = "";
+		try {
+			String line = "/home/bridgeit/Desktop/list.txt"; // path of txt file
+			String s = fileRead(line);
+			String date = curruntDate();
+
+			boolean b = false;
+			String[] str = s.split(" ");
+			System.out.println("starting matching");
+			for (int i = 0; i < str.length; i++) {
+				b = Pattern.matches(str[i], "name");
+				if (b) {
+					s1 = s.replace(str[i], "Nikunj");
+				}
+				b = Pattern.matches(str[i], "fullName");
+				if (b) {
+					s2 = s1.replace(str[i], "Nikunj Balar");
+				}
+				b = Pattern.matches(str[i], "91-xxxxxxxxxx");
+				if (b) {
+					s3 = s2.replace(str[i], "91-9737366556");
+				}
+				b = Pattern.matches(str[i], "01/01/2016");
+				if (b) {
+					s4 = s3.replace(str[i], date);
+				}
+
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return s4;
+	}
+
+	private static String fileRead(String path) {
+		BufferedReader br = null;
+		String sb = new String();
+		try {
+			br = new BufferedReader(new FileReader(path));
+			sb = br.readLine();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return sb;
+	}
+
 }
