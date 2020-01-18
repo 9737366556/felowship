@@ -859,7 +859,7 @@ public class Utility {
 		double w = 0.0;
 
 		try {
-			w = 35.74 + (0.6215 * t) + ((0.4275 * t - 35.75) * (Math.pow(0.16, v)));
+			w = 35.74 + (0.6215 * t) + ((0.4275 * t - 35.75) * (Math.pow(0.16, v))); //National Weather Service definition
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
