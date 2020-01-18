@@ -22,16 +22,19 @@ public class PrimeIsAnagramAndPelindrom {
 			for (int i = 0; i < n; i++) {
 				for (int j = i + 1; j < n; j++) {
 
-					prime = Utility.primeNumber(i); // return true if i is prime number
+					prime = Utility.primeNumber(i);
+					// return true if i is prime number
 					if (prime) {
 						int[] arr1 = Utility.intToArray(i);
 						int[] arr2 = Utility.intToArray(j);
-						valid = Utility.anagramDetection(arr1, arr2); // return true if find any onther prime anagram number
+						 // return true if find any onther prime anagram number
+						valid = Utility.anagramDetection(arr1, arr2);
 						if (valid) {
 							System.out.print("number is prime and anagram " + i);
 							System.out.println();
 						}
-						palindrom = Utility.palindrom(i); // return true if number is pelindrom
+						palindrom = Utility.palindrom(i); 
+						// return true if number is pelindrom
 						if (palindrom) {
 							System.out.print(" number is prime and palindrom " + i);
 							System.out.println();

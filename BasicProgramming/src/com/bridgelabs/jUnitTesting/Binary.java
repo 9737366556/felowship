@@ -1,5 +1,7 @@
 package com.bridgelabs.jUnitTesting;
 
+import java.util.InputMismatchException;
+
 import com.bridgelabs.basicProgramming.utility.Utility;
 
 /**
@@ -16,7 +18,7 @@ public class Binary {
 			int n = Utility.integerInput();
 
 			Utility.swapNibbles(n);
-		} catch (Exception e) {
+		} catch (NumberFormatException | InputMismatchException e) {
 			System.err.println("you have an exception in main function of Binary " + e.getClass());
 		}
 

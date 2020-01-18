@@ -1,5 +1,7 @@
 package com.bridgelabs.jUnitTesting;
 
+import java.util.InputMismatchException;
+
 import com.bridgelabs.basicProgramming.utility.Utility;
 import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
 
@@ -47,7 +49,7 @@ public class DayOfWeek {
 				break;
 			}
 
-		} catch (Exception e) {
+		} catch (InputMismatchException  e) {
 			System.err.println("you have an exception in main function of DayOfWeek " + e.getClass());
 		}
 		System.out.println("enter date in valid formate");

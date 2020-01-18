@@ -12,6 +12,7 @@ import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
  */
 public class DistingCoupenNumber {
 	public static void main(String[] args) {
+		
 		System.out.println("main function of DistingCoupenNumber class will started");
 		System.out.println("how many disting number you want");
 		int n = Utility.integerInput();  // calling integerInput function of Utility for reading standered input

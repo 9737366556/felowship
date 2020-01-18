@@ -149,7 +149,7 @@ public class Utility {
 	// method for calculate minimum prime factor of given number
 	public static void factorization(int n) {
 		try {
-			for (int i = 2; i <= n; i += 2) {
+			for (int i = 2; i*i<= n; i += 2) {
 				while (n % i == 0) {
 					System.out.print(i + " ");
 					n /= i;
@@ -801,6 +801,8 @@ public class Utility {
 		return strDate;
 	}
 
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^getYourMSG^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to get your msg with your details
 	public static String getYourMSG(String name, String fullName, String phoneNumber) {
 		String s1 = "", s2 = "", s3 = "", s4 = "";
 		try {
@@ -836,6 +838,8 @@ public class Utility {
 		return s4;
 	}
 
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^fileRead^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to read file from system.
 	private static String fileRead(String path) {
 		BufferedReader br = null;
 		String sb = new String();
@@ -846,6 +850,20 @@ public class Utility {
 			System.out.println(e.getMessage());
 		}
 		return sb;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^windChill^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to calculate windchill according to National Weather Service
+	// definition
+	public static double windChill(double t, double v) {
+		double w = 0.0;
+
+		try {
+			w = 35.74 + (0.6215 * t) + ((0.4275 * t - 35.75) * (Math.pow(0.16, v)));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return w;
 	}
 
 }

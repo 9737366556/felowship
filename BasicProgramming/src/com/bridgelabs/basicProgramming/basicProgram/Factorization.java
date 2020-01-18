@@ -13,6 +13,6 @@ public class Factorization {
 		System.out.println("Enter number which you want to find factorization");
 		int n = Utility.integerInput();
 
-		Utility.factorization(n);
+		Utility.factorization(n); // print prime factore of input
 	}
 }

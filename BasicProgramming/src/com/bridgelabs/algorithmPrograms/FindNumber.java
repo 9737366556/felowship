@@ -7,9 +7,7 @@ import com.bridgelabs.basicProgramming.utility.Utility;
  * Purpose: To find number 
  * 
  * 
- * 
- * @author bridgeit
- *
+ * @author Nikunj Balar
  */
 public class FindNumber {
 	public static void main(String[] args) {
@@ -19,13 +17,13 @@ public class FindNumber {
 		int power = 1;
 		for (int i = 0; i < numbers.length; i++) {
 			power = power * 2;
-			numbers[i] = power;
+			numbers[i] = power; //Storing power of 2 into array at ith position
 			System.out.println(numbers[i] + " ");
 		}
-		int num = Utility.binarySearchIneger(numbers, 0, n - 1);
+		int num = Utility.binarySearchIneger(numbers, 0, n - 1); // return position of number if number found 
 		if (num != -1)
 			System.out.println("number found at " + num + " position");
-		else
+		else //if number is -1 than number not found
 			System.out.println("number not found");
 	}
 }

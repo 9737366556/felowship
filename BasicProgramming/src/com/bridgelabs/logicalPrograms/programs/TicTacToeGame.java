@@ -10,137 +10,115 @@ import com.bridgelabs.basicProgramming.utility.Utility;
  */
 public class TicTacToeGame {
 
-	public static final int X = 1, O = -1;
-	public static final int EMPTY = 0;
-	public int player = X;
-	private int[][] board = new int[3][3];
-	public boolean isEmpty = false;
-	static int n = 0;
-	static StringBuffer input = new StringBuffer();
-
-	public TicTacToeGame() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public boolean isWin(int PLAYER) { // defining all winning possibilities of both user
-		boolean win=false;
+	// function to check player is win or not
+	static boolean isWin(char[][] board) { // defining all winning possibilities of both user
+		boolean win = false;
 		for (int i = 0; i < board.length; i++) {
-			if(board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] !=' ') {
-				win=true;
-			}
-			else if(board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
-				win=true;
-			}
-			else if(board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
-				win=true;
+			if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
+				win = true;
+			} else if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[i][0] != ' ') {
+				win = true;
+			} else if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
+				win = true;
+			} else if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
+				win = true;
 			}
 		}
 		return win;
 	}
 
-	public void displayWinner() {
-		if (isWin(X)) { // checking winning positions of X
-			System.out.println("\n X wins...!!!");
-			isEmpty = false;
-		} else if (isWin(O)) { // checking winning positions of O
-			System.out.println("\n O wins...!!!");
-			isEmpty = false;
-		} else {
-			if (!isEmpty) // if board is full then its a tie
-				System.out.println("Its a tie...!!!");
-		}
-	}
-
-	public void position(int n) { // Entering the positions by user\
-
-		if (n <= 0 || n >= 10) { // condition to input between 0 to 10
-			System.out.println("Enter a valid position!!");
-			return;
-		}
-		if (n != EMPTY) {
-			System.out.println("Position is occupied");
-
-		}
-		if (n > 0 || n < 10 || n == EMPTY) {
-			switch (n) {
-			case 1:
-				board[0][0] = player;
-				break;
-			case 2:
-				board[0][1] = player;
-				break;
-			case 3:
-				board[0][2] = player;
-				break;
-			case 4:
-				board[1][0] = player;
-				break;
-			case 5:
-				board[1][1] = player;
-				break;
-			case 6:
-				board[1][2] = player;
-				break;
-			case 7:
-				board[2][0] = player;
-				break;
-			case 8:
-				board[2][1] = player;
-				break;
-			case 9:
-				board[2][2] = player;
-				break;
-			default:
-				System.out.println("invalid input!!");
-			}
-			player = -player; // after first players input changing player
-		}
-	}
-
-	public String toString() {
-		StringBuffer sb = new StringBuffer();
-		isEmpty = false;
-
+	// function to check for draw case
+	static boolean isDraw(char[][] board) {
+		boolean draw = false;
+		int count = 0;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				switch (board[i][j]) {
-				case X:
-					sb.append(" X ");
-					break;
-				case O:
-					sb.append(" O ");
-					break;
-				case EMPTY:
-					sb.append(" ");
-					isEmpty = true;
-					break;
-				}
-
-				if (j < 2) {
-					sb.append("|");
-				}
-			}
-			if (i < 2) {
-				sb.append("\n------------\n");
+				if ((board[i][j] == 'X' || board[i][j] == 'O') && board[i][j] != ' ')
+					count++;
 			}
 		}
-		return sb.toString();
+		if (count == 9) {
+			draw = true;
+		}
+		return draw;
+
+	}
+
+	// function for dispplaying board with user input
+	static void displayBoard(char[][] board) {  
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[i].length; j++) {
+				if (j != board[i].length - 1)
+					System.out.print(board[i][j] + " | ");
+				else
+					System.out.println(board[i][j]);
+			}
+			if (i < 2)
+				System.out.println("---------");
+		}
+	}
+
+	private static void position(char[][] board, char player) {
+
+		int row, column;
+		while (!isWin(board) == true || !isDraw(board) == true) {
+
+			// get input for row/column
+			System.out.println("Enter a row and column (0, 1, or 2); for player " + player + ":");
+			row = Utility.integerInput();
+			column = Utility.integerInput();
+			// cheaking for valid position
+			if (row < 0 || row > 2) {
+				System.out.println("enter valid position");
+				position(board, player);
+			} else if (column < 0 || column > 2) {
+				System.out.println("enter valid position");
+				position(board, player);
+			} else {
+				// check spot is occupied or not
+				while (board[row][column] == 'X' || board[row][column] == 'O') {
+					System.out.println("This spot is occupied. Please try again");
+					position(board, player);
+					break;
+				}
+				// place the X in 2D array at board[row][column] position
+				board[row][column] = player; 
+				displayBoard(board);
+
+				// check player is win or not
+				if (isWin(board)) {
+					System.out.println("Player " + player + " is the winner!");
+				}
+				//check gaem id draw or not
+				if (isDraw(board))
+					System.out.println("Draw");
+
+				//swap players after the terms.
+				if (player == 'O') {
+					player = 'X';
+
+				} else {
+					player = 'O';
+				}
+			}
+		}
 	}
 
 	public static void main(String[] args) {
-		TicTacToeGame t = new TicTacToeGame();
-		int i = 0;
-		do {
-			System.out.println(t.player == X ? "Player X turn" : "Player O turn"); // checking the player
-			System.out.print("Enter posotion 1 to 9: ");
-			n = Utility.integerInput(); // taking position input from user
 
-			t.position(n);
+		char[][] board = new char[3][3];
+		char ch = ' ';
+		char player = 'X';
 
-			System.out.println(t.toString());
-			System.out.println("_______________");
-			t.displayWinner();
-		} while (t.isEmpty); // while position is empty it will execute do
-
+		// initialise position of array 
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				board[i][j] = ch;
+			}
+		}
+		// displaying board
+		displayBoard(board);
+		
+		position(board, player);
 	}
 }

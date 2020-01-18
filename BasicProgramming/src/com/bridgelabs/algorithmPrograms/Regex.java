@@ -1,5 +1,7 @@
 package com.bridgelabs.algorithmPrograms;
 
+import java.util.InputMismatchException;
+
 import com.bridgelabs.basicProgramming.utility.Utility;
 
 public class Regex {
@@ -11,8 +13,8 @@ public class Regex {
 			String fullName=Utility.stringInput();
 			System.out.println("enter mobilenumber");
 			String phoneNumber=Utility.stringInput();
-			System.out.println(Utility.getYourMSG(name , fullName, phoneNumber));
-		}catch (Exception e) {
+			System.out.println(Utility.getYourMSG(name , fullName, phoneNumber)); //return  String msg with user details
+		}catch (InputMismatchException | NumberFormatException e) {
 			System.out.println(e.getMessage());
 		}
 		

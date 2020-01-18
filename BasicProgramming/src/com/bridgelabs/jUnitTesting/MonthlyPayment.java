@@ -1,5 +1,7 @@
 package com.bridgelabs.jUnitTesting;
 
+import java.util.InputMismatchException;
+
 import com.bridgelabs.basicProgramming.utility.Utility;
 
 /**
@@ -21,7 +23,7 @@ public class MonthlyPayment {
 
 			Utility.monthlyPayment(p, y, r);
 
-		} catch (Exception e) {
+		} catch (InputMismatchException e) {
 			System.err.println("you have an exception in main function of MonthlyPayment " + e.getClass());
 		}
 		System.out.println("enter numeric only");
