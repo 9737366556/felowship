@@ -12,6 +12,7 @@ public class UnOrderedList {
 			list.insert(words[i]);
 		}
 		list.show();
+		System.out.println("Enter input what you want to search");
 		String data = Utility.stringInput();
 		int index = list.searchIndex(data);
 		if (index > 0) {
@@ -19,9 +20,9 @@ public class UnOrderedList {
 		} else {
 			list.insert(data);
 		}
-		
+
 		list.show();
-		list.printIntoFile("/home/bridgeit/Desktop/list.txt");	
-		
+		list.printIntoFile("/home/bridgeit/Desktop/list.txt");
+
 	}
 }

@@ -552,7 +552,7 @@ public class Utility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^bubbleSort^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to sort String array using bubble sort
-	public static void bubbleSort(String line) {
+	public static String[] bubbleSort(String line) {
 		String[] words = Utility.splitS(' ', line); // converting String into string array
 		String temp = "";
 		for (int i = 0; i < words.length; ++i) {
@@ -564,9 +564,7 @@ public class Utility {
 				}
 			}
 		}
-		for (int i = 0; i < words.length; i++) {
-			System.out.print(words[i] + " ");
-		}
+		return words;
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^insertionSort^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
