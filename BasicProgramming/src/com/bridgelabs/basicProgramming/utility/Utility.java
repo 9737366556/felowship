@@ -2,6 +2,7 @@ package com.bridgelabs.basicProgramming.utility;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -149,7 +150,7 @@ public class Utility {
 	// method for calculate minimum prime factor of given number
 	public static void factorization(int n) {
 		try {
-			for (int i = 2; i*i<= n; i += 2) {
+			for (int i = 2; i * i <= n; i += 2) {
 				while (n % i == 0) {
 					System.out.print(i + " ");
 					n /= i;
@@ -512,7 +513,7 @@ public class Utility {
 					ab.delete(0, j);
 					count += 1;
 					j = 0;
-				} else {
+				} else if (array[i] != c) {
 					a[j] = array[i];
 					ab.append(a[j]);
 					j++;
@@ -840,7 +841,7 @@ public class Utility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^fileRead^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to read file from system.
-	private static String fileRead(String path) {
+	public static String fileRead(String path) {
 		BufferedReader br = null;
 		String sb = new String();
 		try {
@@ -859,7 +860,8 @@ public class Utility {
 		double w = 0.0;
 
 		try {
-			w = 35.74 + (0.6215 * t) + ((0.4275 * t - 35.75) * (Math.pow(0.16, v))); //National Weather Service definition
+			w = 35.74 + (0.6215 * t) + ((0.4275 * t - 35.75) * (Math.pow(0.16, v))); // National Weather Service
+																						// definition
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
