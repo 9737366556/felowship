@@ -1,6 +1,7 @@
 package com.bridgelabs.utility;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -38,7 +39,7 @@ public class LogicalUtility {
 		double avgBets = bets / n; // finding average bet of the wall games
 		System.out.println("out of " + n + " time gambler will won " + won + " time");
 		System.out.println("Avg bets  = " + avgBets); // printing average bets of the total games
-		
+
 		return percentage;
 	}
 
@@ -70,17 +71,17 @@ public class LogicalUtility {
 	// function To calculate elapse time of stopwtch
 
 	public static double elapseStopwatch() {
-		double elapse=0.0;
+		double elapse = 0.0;
 		System.out.println("chose any one from below");
 		System.out.println(
 				"1.Elapse time between start and end click \n2.elapse time between start, pause, resume and end click");
 		int n = Utility.integerInput(); // creating 2 case for different requirement of user
 		switch (n) {
 		case 1:
-			elapse=Utility.elapseStartEnd(); // elapse time for only start and end click
+			elapse = Utility.elapseStartEnd(); // elapse time for only start and end click
 			break;
 		case 2:
-			elapse=Utility.elapseStartPauseEnd(); // elapse time fore start, pause, resume and end click
+			elapse = Utility.elapseStartPauseEnd(); // elapse time fore start, pause, resume and end click
 			break;
 		default:
 			System.out.println("no such function found");
@@ -102,30 +103,25 @@ public class LogicalUtility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^fileRead^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function To read data from file and Store into word list
-	public static void fileReadBinarySearch(String file) {
+	public static void fileReadBinarySearch(String file) throws IOException {
 		BufferedReader br = null;
-		try {
-			System.out.println("enter word for search");
-			String word = Utility.stringInput();
-			br = new BufferedReader(new FileReader(file));
-			String line;
-			String[] words;
-			int find = 0;
-			System.out.print(word +" find at posion :");
-			while ((line = br.readLine()) != null) {
-				words = Utility.splitS(' ', line);
-				Arrays.sort(words);
-				int first = 0;
-				int last = words.length;
+		System.out.println("enter word for search");
+		String word = Utility.stringInput();
+		br = new BufferedReader(new FileReader(file));
+		String line;
+		String[] words;
+		int find = 0;
+		System.out.print(word + " find at posion :");
+		while ((line = br.readLine()) != null) {
+			words = Utility.splitS(' ', line);
+			Arrays.sort(words);
+			int first = 0;
+			int last = words.length;
 
-				find = Utility.binarySearch(word, words, first, last);
-				if (find != -1) {
-					System.out.print(find + ", ");
-				}
+			find = Utility.binarySearch(word, words, first, last);
+			if (find != -1) {
+				System.out.print(find + ", ");
 			}
-		} catch (IOException e) {
-			System.err.println("you hava an exception in main function of BinarySearch " + e.getMessage());
-			e.printStackTrace();
 		}
 	}
 

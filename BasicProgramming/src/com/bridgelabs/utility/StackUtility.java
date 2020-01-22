@@ -1,4 +1,4 @@
-package com.bridgelabs.dataStructure.utility;
+package com.bridgelabs.utility;
 
 public class StackUtility<T> {
 
