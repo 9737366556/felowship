@@ -2,7 +2,7 @@ package com.bridgelabs.algorithmPrograms;
 
 import java.util.InputMismatchException;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 public class Regex {
 	public static void main(String[] args) {

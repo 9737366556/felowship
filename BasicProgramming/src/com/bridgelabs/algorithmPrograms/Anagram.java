@@ -1,6 +1,6 @@
 package com.bridgelabs.algorithmPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose: To check both the String are anagram or note

@@ -2,7 +2,7 @@ package com.bridgelabs.algorithmPrograms;
 
 import java.util.InputMismatchException;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose: To Find the a number which is prime as well as anagram or prime as well as pelindrom
