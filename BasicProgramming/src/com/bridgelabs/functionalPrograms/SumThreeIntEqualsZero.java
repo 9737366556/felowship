@@ -1,6 +1,6 @@
 package com.bridgelabs.functionalPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 
 /**
@@ -17,7 +17,7 @@ public class SumThreeIntEqualsZero {
 		int n=Utility.integerInput();
 		
 		Utility.sumOfThreeEZero(n);
-		System.out.printf("format", args);
+		
 		System.out.println("main function of SumThreeIntEqualsZero class will ended");
 	}
 }

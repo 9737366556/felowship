@@ -2,7 +2,7 @@ package com.bridgelabs.functionalPrograms;
 
 import java.util.InputMismatchException;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 
 /**
