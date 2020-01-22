@@ -1,6 +1,6 @@
-package com.bridgelabs.basicProgramming.basicProgram;
+package com.bridgelabs.basicProgramming;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose: For Replace String Template
@@ -18,7 +18,7 @@ public class ReplaceStringTemplate {
 		System.out.println("Enter word which you want to add");
 		String addAtReplace = Utility.stringInput();// taking input from user using stringInput() of Utility class
 
-		Utility.replaceString(line, replace, addAtReplace);// calling replaceString() from Utility class
+		System.out.println(Utility.replaceString(line, replace, addAtReplace));// calling replaceString() from Utility class
 
 	}
 

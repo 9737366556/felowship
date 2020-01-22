@@ -1,6 +1,6 @@
-package com.bridgelabs.basicProgramming.basicProgram;
+package com.bridgelabs.basicProgramming;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 
 /**
