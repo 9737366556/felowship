@@ -1,7 +1,7 @@
-package com.bridgelabs.logicalPrograms.programs;
+package com.bridgelabs.logicalPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
-import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
+import com.bridgelabs.utility.LogicalUtility;
+import com.bridgelabs.utility.Utility;
 
 
 /**
@@ -20,7 +20,8 @@ public class Gambler {
 		System.out.println("enter number of time game will replay");
 		int n = Utility.integerInput();			// calling integerInput function of Utility for reading standered input
 
-		LogicalUtility.gambling(stake, goal, n);	// calling gambling function of LogicalUtility To Count Number of Wins and Percentage of Win and Loss of Gambler.
+		float percentage=LogicalUtility.gambling(stake, goal, n);	// calling gambling function of LogicalUtility To Count Number of Wins and Percentage of Win and Loss of Gambler.
+		System.out.println("Percent of games won = " + percentage); // printing percentage of winning
 		System.out.println("main function of class Gambler will Ended");
 	}
 }

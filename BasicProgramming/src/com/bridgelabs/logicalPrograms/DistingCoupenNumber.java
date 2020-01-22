@@ -1,7 +1,7 @@
-package com.bridgelabs.logicalPrograms.programs;
+package com.bridgelabs.logicalPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
-import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
+import com.bridgelabs.utility.LogicalUtility;
+import com.bridgelabs.utility.Utility;
 
 
 /**

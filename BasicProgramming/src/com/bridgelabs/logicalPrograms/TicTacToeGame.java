@@ -1,6 +1,6 @@
-package com.bridgelabs.logicalPrograms.programs;
+package com.bridgelabs.logicalPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose : Entertainment of User with TicTacToeGame
@@ -13,10 +13,10 @@ public class TicTacToeGame {
 	// function to check player is win or not
 	static boolean isWin(char[][] board) { // defining all winning possibilities of both user
 		boolean win = false;
-		for (int i = 0; i < board.length; i++) {
+		for (int i = 0; i < 3; i++) {
 			if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
 				win = true;
-			} else if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[i][0] != ' ') {
+			} else if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ') {
 				win = true;
 			} else if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
 				win = true;
@@ -45,7 +45,7 @@ public class TicTacToeGame {
 	}
 
 	// function for dispplaying board with user input
-	static void displayBoard(char[][] board) {  
+	static void displayBoard(char[][] board) {
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[i].length; j++) {
 				if (j != board[i].length - 1)
@@ -82,18 +82,21 @@ public class TicTacToeGame {
 					break;
 				}
 				// place the X in 2D array at board[row][column] position
-				board[row][column] = player; 
+				board[row][column] = player;
 				displayBoard(board);
 
 				// check player is win or not
 				if (isWin(board)) {
 					System.out.println("Player " + player + " is the winner!");
+					break;
 				}
-				//check gaem id draw or not
-				if (isDraw(board))
+				// check gaem id draw or not
+				if (isDraw(board)) {
 					System.out.println("Draw");
+					break;
+				}
 
-				//swap players after the terms.
+				// swap players after the terms.
 				if (player == 'O') {
 					player = 'X';
 
@@ -110,7 +113,7 @@ public class TicTacToeGame {
 		char ch = ' ';
 		char player = 'X';
 
-		// initialise position of array 
+		// initialise position of array
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				board[i][j] = ch;
@@ -118,7 +121,7 @@ public class TicTacToeGame {
 		}
 		// displaying board
 		displayBoard(board);
-		
+
 		position(board, player);
 	}
 }

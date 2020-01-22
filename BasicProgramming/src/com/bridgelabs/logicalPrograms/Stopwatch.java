@@ -1,6 +1,6 @@
-package com.bridgelabs.logicalPrograms.programs;
+package com.bridgelabs.logicalPrograms;
 
-import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
+import com.bridgelabs.utility.LogicalUtility;
 
 /**
  * Purpose: To measuring the time that elapses between the start and end clicks.
@@ -11,7 +11,7 @@ import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
 public class Stopwatch {
 	public static void main(String[] args) {
 		System.out.println("main function of Stopwatch class started");
-		LogicalUtility.elapseStopwatch(); 
+		System.out.println("elapse time "+LogicalUtility.elapseStopwatch()); 
 		System.out.println("main function of Stopwatch class ended");
 	}
 }
