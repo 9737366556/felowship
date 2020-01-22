@@ -1,6 +1,6 @@
 package com.bridgelabs.jUnitTesting;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose:To find a binary representaion of decimal number
@@ -15,7 +15,7 @@ public class ToBinary {
 			int num = Utility.integerInput();
 			Utility.toBinary(num);
 		} catch (Exception e) {
-			System.err.println("you have an exception in main funcvtion of ToBinary " + e.getClass());
+			System.err.println("you have an exception in main function of ToBinary " + e.getClass());
 		}
 		System.out.println("main function of ToBinary class is ended");
 	}

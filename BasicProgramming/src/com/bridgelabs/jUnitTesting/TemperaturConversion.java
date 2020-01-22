@@ -2,7 +2,7 @@ package com.bridgelabs.jUnitTesting;
 
 import java.util.InputMismatchException;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose:To convert Temperature from Fahrenheit to Celsius or from Celsius to
