@@ -1,6 +1,6 @@
 package com.bridgelabs.jUnitTesting;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose:To find the Fewest Notes to be returned from Vending Machine

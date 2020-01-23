@@ -1,7 +1,6 @@
 package com.bridgelabs.algorithmPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
-
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose: To find all the possible permutations of the word
@@ -11,9 +10,9 @@ import com.bridgelabs.basicProgramming.utility.Utility;
  *
  */
 public class Permutations {
-	//function to Swap the character for changing the first position 
+	// function to Swap the character for changing the first position
 	public static String swapString(String a, int i, int j) {
-		
+
 		char[] b = a.toCharArray();
 		char ch;
 		ch = b[i];
@@ -38,12 +37,16 @@ public class Permutations {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		System.out.println("enter word");
-		String str = Utility.stringInput();
-		int len = str.length();
-		System.out.println("All the permutations of the string are: ");
-		generatePermutation(str, 0, len);
+		try {
+			System.out.println("enter word");
+			String str = Utility.stringInput();
+			int len = str.length();
+			System.out.println("All the permutations of the string are: ");
+			generatePermutation(str, 0, len);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
 	}
 }

@@ -2,8 +2,8 @@ package com.bridgelabs.jUnitTesting;
 
 import java.util.InputMismatchException;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
-import com.bridgelabs.logicalPrograms.utility.LogicalUtility;
+import com.bridgelabs.utility.LogicalUtility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose:To find the day of week on the basis of given date
@@ -52,7 +52,6 @@ public class DayOfWeek {
 		} catch (InputMismatchException  e) {
 			System.err.println("you have an exception in main function of DayOfWeek " + e.getClass());
 		}
-		System.out.println("enter date in valid formate");
 		System.out.println("main function of DayOfWeek class is ended");
 
 	}

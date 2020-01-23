@@ -1,6 +1,6 @@
 package com.bridgelabs.functionalPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose: To calculate Quadratic

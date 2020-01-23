@@ -1,6 +1,6 @@
 package com.bridgelabs.functionalPrograms;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose: to calculate Distance
@@ -12,7 +12,7 @@ public class Distance {
 	public static void main(String[] args) {
 		System.out.println("main function for Distance class will start");
 
-		System.out.println("Enter ending point");
+		System.out.println("Enter starting point");
 		int m = Utility.integerInput();
 		System.out.println("Enter ending point");
 		int n = Utility.integerInput();

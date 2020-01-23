@@ -2,7 +2,7 @@ package com.bridgelabs.jUnitTesting;
 
 import java.util.InputMismatchException;
 
-import com.bridgelabs.basicProgramming.utility.Utility;
+import com.bridgelabs.utility.Utility;
 
 /**
  * Purpose:To calculate Monthly payment
@@ -21,12 +21,11 @@ public class MonthlyPayment {
 			System.out.println("How much Percent Interest compounded monthly");
 			double r = Utility.doubleInput();
 
-			Utility.monthlyPayment(p, y, r);
+			System.out.println("Total monthly payment is "+Utility.monthlyPayment(p, y, r));
 
 		} catch (InputMismatchException e) {
 			System.err.println("you have an exception in main function of MonthlyPayment " + e.getClass());
 		}
-		System.out.println("enter numeric only");
 		System.out.println("main function of MonthlyPayment class is ended");
 	}
 }
