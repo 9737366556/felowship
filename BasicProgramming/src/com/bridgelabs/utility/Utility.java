@@ -575,15 +575,11 @@ public class Utility {
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^primeNumberRange^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to find the range of prime numbers
 	public static void primeNumberRange(int n) {
-		try {
-			for (int i = 2; i <= n; i++) {
-				boolean number = Utility.primeNumber(i); // return true if number is prime
-				if (number) {
-					System.out.print(i + " ");
-				}
+		for (int i = 2; i <= n; i++) {
+			boolean number = Utility.primeNumber(i); // return true if number is prime
+			if (number) {
+				System.out.print(i + " ");
 			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
 		}
 	}
 
@@ -795,6 +791,48 @@ public class Utility {
 		double w = 0.0;
 		w = 35.74 + (0.6215 * t) + ((0.4275 * t - 35.75) * (Math.pow(0.16, v))); // National Weather Service
 		return w;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^balanceParentheses^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to check parenthesis are balanced or not
+	public static boolean balanceParentheses(String line) {
+		StackUtility stack = new StackUtility();
+		char[] ch = line.toCharArray();
+		for (int i = 0; i < ch.length; i++) {
+			if (ch[i] == '(' || ch[i] == '{' || ch[i] == '[') {
+				// push parenthesis into Stack
+				stack.push(ch[i]);
+			}
+			if (ch[i] == ')' || ch[i] == '}' || ch[i] == ']') {
+				char chh = (char) stack.peek();
+				switch (ch[i]) {
+				case ')':
+					if (chh == '(')
+						// pop parenthesis from stack
+						stack.pop();
+					break;
+				case '}':
+					if (chh == '{')
+						// pop parenthesis from stack
+						stack.pop();
+					break;
+				case ']':
+					if (chh == '[')
+						// pop parenthesis from stack
+						stack.pop();
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		// display stack
+		stack.show();
+		// check stack is empty or not
+		if (stack.isEmpty())
+			// if stack is empty than return true
+			return true;
+		return false;
 	}
 
 }
