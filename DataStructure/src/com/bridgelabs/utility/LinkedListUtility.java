@@ -135,7 +135,7 @@ public class LinkedListUtility<E> {
 			find = true;
 			index = count;
 		}
-		return index;
+		return index-1;
 	}
 
 	// function to print into external file
@@ -157,7 +157,7 @@ public class LinkedListUtility<E> {
 	}
 
 	// function to delet last object and return that object
-	public <E> E pop() {
+	public <E> E delet() {
 		Node node = head;
 		Node n = null;
 		while (node.next.next != null) {
@@ -190,5 +190,15 @@ public class LinkedListUtility<E> {
 		}
 		System.out.println(comparable);
 		return comparable;
+	}
+
+	public int size() {
+		Node node =head;
+		int count=1;
+		while (node.next != null) {
+			node = node.next;
+			count ++;
+		}
+		return count;
 	}
 }
