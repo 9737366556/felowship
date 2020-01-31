@@ -25,6 +25,8 @@ public class BinaryTree {
 		bst.insert(50);
 
 		// return number of leaf of binary tree
-		System.out.println(bst.getLeafCount());
+		int size=bst.size();
+		System.out.println("elements enter : "+size);
+		System.out.println("total leaf of the tree is "+bst.getLeafCount());
 	}
 }

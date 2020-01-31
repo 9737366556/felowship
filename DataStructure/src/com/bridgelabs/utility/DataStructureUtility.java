@@ -165,7 +165,7 @@ public class DataStructureUtility {
 		boolean valid = false;
 		// return the array of all prime number between in the range
 		int[] arr = Utility.primeNumRange(n);
-		StackUtility<Integer> list=new StackUtility<Integer>();
+		StackUtility<Integer> list = new StackUtility<Integer>();
 		for (int i = 0; i < arr.length - 1; i++) {
 			for (int j = i + 1; j < arr.length; j++) {
 				// convert number into array
@@ -238,10 +238,106 @@ public class DataStructureUtility {
 				if (anagram) {
 
 					list.inserst(arr[i]);
+					break;
 				}
 			}
 		}
 		return list;
 	}
 
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^createCalender^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function for calender
+	public static int[][] createCalender(int month, int year) {
+		int calender[][] = new int[7][7];
+		int day = LogicalUtility.dayOfWeek(1, month, year);
+		String dayOfWeek[] = { " s", " m", " t", " w", " t", " f", " s" };
+		int dayOfMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int days = dayOfMonth[month - 1];
+		int k = 01;
+		int flag = 0;
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				if (k <= days) {
+					/*
+					 * if (i == 0) calender[i][j] = dayOfWeek[j]; else
+					 */if (day == j) {
+						calender[i][j] = k;
+						day++;
+						k++;
+						flag = 1;
+					} else
+						calender[i][j] = 0;
+				} else
+					calender[i][j] = 0;
+			}
+			if (flag == 1)
+				day = 0;
+		}
+		return calender;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^weekDays^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function for print week of the month
+	public static QueueLinkedList weekDays(int month, int year) {
+		QueueLinkedList<Integer> queue = new QueueLinkedList<Integer>();
+		int day = LogicalUtility.dayOfWeek(1, month, year);
+		String[] dayOfWeek = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
+		int[] dayOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int days = dayOfMonth[month - 1];
+		int k = 1;
+		int flag = 0;
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				if (k <= days) {
+					if (day == j) {
+						queue.inserst(k);
+						day++;
+						k++;
+						flag = 1;
+					} else
+						queue.inserst(0);
+				} else
+					queue.inserst(0);
+			}
+			if (flag == 1)
+				day = 0;
+		}
+		return queue;
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^printCalender^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function for print calender
+	public static void printCalender(int[][] aar) {
+		for (int i = 0; i < aar.length - 1; i++) {
+			for (int j = 0; j < aar.length; j++) {
+				if (aar[i][j] == 0)
+					System.out.print("    ");
+				else if (aar[i][j] <= 9)
+					System.out.print(" " + aar[i][j] + "  ");
+				else
+					System.out.print(aar[i][j] + "  ");
+			}
+			System.out.println();
+		}
+	}
+
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^printCalender^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function for print calender
+	public static void printCalender(int week, QueueLinkedList queue) {
+		System.out.print("sun mon tue wed thu fri sat");
+		for (int i = 1; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				int n = (int) queue.removeFirst();
+				if (i == week) {
+					if (n == 0)
+						System.out.print("    ");
+					else if (n <= 9)
+						System.out.print(" " + n + "  ");
+					else
+						System.out.print(n + "  ");
+				}
+			}
+			System.out.println();
+		}
+	}
 }

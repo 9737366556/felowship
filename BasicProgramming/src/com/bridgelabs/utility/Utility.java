@@ -126,6 +126,14 @@ public class Utility {
 		return sum;
 	}
 
+	public static long factorial(int n) {
+		long sum = 1;
+		for (int i = n; i > 0; i--) {
+			sum = sum * i;
+		}
+		return sum;
+	}
+
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^factorization^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// method for calculate minimum prime factor of given number
 	public static void factorization(int n) {
@@ -575,38 +583,58 @@ public class Utility {
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^primeNumberRange^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to find the range of prime numbers
 	public static void primeNumberRange(int n) {
-		try {
-			for (int i = 2; i <= n; i++) {
-				boolean number = Utility.primeNumber(i); // return true if number is prime
-				if (number) {
-					System.out.print(i + " ");
-				}
+		for (int i = 2; i <= n; i++) {
+			boolean number = Utility.primeNumber(i); // return true if number is prime
+			if (number) {
+				System.out.print(i + " ");
 			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
 		}
 	}
 
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^primeNumberRange^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	// function to find the range of prime numbers
+	static int capacity=1;
+	static int arr[] =new int[capacity];
+	static int k = 0;
+	public static int[] primeNumRange(int n) {
+		
+		for (int i = 2; i <= n; i++) {
+			boolean number = Utility.primeNumber(i); // return true if number is prime
+			if (number) {
+				expand();
+				arr[k] = i;
+				k++;
+			}
+		}
+		return arr;
+	}
+
+	public static <E> void expand() {
+		capacity += 1;
+		int[] array = new int[capacity];
+		System.arraycopy(arr, 0, array, 0, k);
+		arr = array;
+	}
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^intToCharacter^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to convert number into character arrray
 	public static int[] intToArray(int i) {
 
 		int n = 0;
-		int[] arr = new int[n + 1];
+		int[] arr = null;
 		try {
 			if (i / 10 == 0) {
+				arr = new int[n+1];
 				arr[n] = i % 10;
 			}
 			while (i / 10 > 0) {
-				arr = new int[n + 1];
+				arr = new int[n+1];
 				arr[n] = i % 10;
 
 				n++;
 				i = i / 10;
 				if (i / 10 == 0) {
-					arr = new int[n + 1];
+					arr = new int[n+1];
 					arr[n] = i % 10;
-
 				}
 			}
 		} catch (Exception e) {
@@ -620,12 +648,13 @@ public class Utility {
 	public static Boolean anagramDetection(int[] arr1, int[] arr2) {
 		boolean valid = false;
 		try {
+			int a=arr1.length;
+			int b=arr2.length;
 			Arrays.sort(arr1); // sort the array
 			Arrays.sort(arr2); // sort the array
 
-			if (arr1.length == arr2.length) {
-				int n = arr1.length;
-				for (int i = 0; i < n; i++) {
+			if (a == b) {
+				for (int i = 0; i < a; i++) {
 					if (arr1[i] == arr2[i]) {
 						valid = true;
 					}

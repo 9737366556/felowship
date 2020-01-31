@@ -1,7 +1,5 @@
 package com.bridgelabs.utility;
 
-
-
 /**
  * Purpose :To Search and Store the data into data Structure 
  * 			To reuse the code
@@ -23,6 +21,7 @@ public class BST {
 		}
 	}
 
+	int size=0;
 	// Root of BST
 	Node root;
 
@@ -48,6 +47,7 @@ public class BST {
 	// This method mainly calls insertRec()
 	public void insert(int key) {
 		root = insertRec(root, key);
+		size++;
 	}
 
 	/* A recursive function to insert a new key in BST */
@@ -98,5 +98,7 @@ public class BST {
         else
             return getLeafCount(node.left) + getLeafCount(node.right); 
     } 
-
+    public int size() {
+    	return size;
+    }
 }

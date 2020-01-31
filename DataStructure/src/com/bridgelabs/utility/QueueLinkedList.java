@@ -68,7 +68,7 @@ public class QueueLinkedList<E> {
 
 	}
 	
-	// return first object
+	// return first objectl
 	public <E> Object first() {
 		if(first != null)
 			return first.data;

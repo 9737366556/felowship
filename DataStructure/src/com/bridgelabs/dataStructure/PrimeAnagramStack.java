@@ -13,8 +13,11 @@ import com.bridgelabs.utility.Utility;
  *
  */
 public class PrimeAnagramStack {
-
 	public static void main(String[] args) {
+		
+	
+
+	//public static void main(String[] args) {
 		try {
 			System.out.println("Enter range of number");
 			int n= Utility.integerInput();
