@@ -1,0 +1,17 @@
+[ {
+  "name" : "Wheat",
+  "quantity" : 30,
+  "price" : 45.0
+}, {
+  "name" : "rice",
+  "quantity" : 32,
+  "price" : 45.0
+}, {
+  "name" : "chanadal",
+  "quantity" : 40,
+  "price" : 10.0
+}, {
+  "name" : "pulse",
+  "quantity" : 10,
+  "price" : 45.0
+} ]

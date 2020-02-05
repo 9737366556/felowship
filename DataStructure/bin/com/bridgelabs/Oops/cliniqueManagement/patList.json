@@ -1,0 +1,16 @@
+[ {
+  "name" : "kunj",
+  "iD" : 32145,
+  "mobileNumber" : 9737366556,
+  "age" : 21
+}, {
+  "name" : "marvin",
+  "iD" : 12345,
+  "mobileNumber" : 9558889962,
+  "age" : 23
+}, {
+  "name" : "nikunj",
+  "iD" : 5647,
+  "mobileNumber" : 7854512546,
+  "age" : 21
+} ]

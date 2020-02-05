@@ -1,0 +1,25 @@
+[ {
+  "fName" : "Nikunj",
+  "lName" : "Balar",
+  "address" : "motavarachha",
+  "city" : "surat",
+  "state" : "Gujarat",
+  "zip" : 394101,
+  "number" : 9737366556
+}, {
+  "fName" : "kunj",
+  "lName" : "joker",
+  "address" : "varaachha",
+  "city" : "earth",
+  "state" : "sun",
+  "zip" : 99998,
+  "number" : 9999999999
+}, {
+  "fName" : "nik",
+  "lName" : "joker",
+  "address" : "moon",
+  "city" : "earth",
+  "state" : "sun",
+  "zip" : 99999,
+  "number" : 9999999999
+} ]

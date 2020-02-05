@@ -1,0 +1,8 @@
+[ {
+  "doctorName" : "nikunj",
+  "patientId" : 12345,
+  "patientName" : "marvinshenjaliya",
+  "doctorSpecialization" : "eyes",
+  "doctorAvailability" : "AM",
+  "doctorAppointment" : 2
+} ]

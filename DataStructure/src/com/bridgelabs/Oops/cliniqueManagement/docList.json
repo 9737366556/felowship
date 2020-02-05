@@ -1,0 +1,16 @@
+[ {
+  "name" : "nik",
+  "id" : 123,
+  "specialization" : "dental",
+  "availability" : "PM"
+}, {
+  "name" : "nikunj",
+  "id" : 456,
+  "specialization" : "eyes",
+  "availability" : "AM"
+}, {
+  "name" : "nisha",
+  "id" : 45612,
+  "specialization" : "java",
+  "availability" : "both"
+} ]

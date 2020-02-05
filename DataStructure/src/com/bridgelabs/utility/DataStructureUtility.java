@@ -1,6 +1,7 @@
 package com.bridgelabs.utility;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Purpose : Utility for code reuse
@@ -10,6 +11,15 @@ import java.util.ArrayList;
  */
 public class DataStructureUtility {
 
+	static Scanner s = new Scanner(System.in);
+	public static String stringInput() {
+		return s.nextLine();
+	}
+	
+	public static long longInput() {
+		return s.nextLong();
+	}
+	
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^balanceParentheses^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function to check parenthesis are balanced or not
 	public static boolean balanceParentheses(String line) {
@@ -340,4 +350,6 @@ public class DataStructureUtility {
 			System.out.println();
 		}
 	}
+
+
 }

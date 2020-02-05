@@ -16,5 +16,9 @@
 	<classpathentry kind="lib" path="/home/bridgeit/Downloads/junit-jupiter-api-5.5.2.jar"/>
 	<classpathentry kind="lib" path="/home/bridgeit/Desktop/txt file/utility.jar"/>
 	<classpathentry kind="lib" path="/home/bridgeit/Downloads/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/jackson-core-2.10.2.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/lombok-1.18.8.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/jackson-databind-2.10.1.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/jackson-annotations-2.10.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

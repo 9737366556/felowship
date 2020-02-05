@@ -1,0 +1,22 @@
+[ {
+  "doctorName" : "nikunj",
+  "patientId" : 12345,
+  "patientName" : "marvinshenjaliya",
+  "doctorSpecialization" : "eyes",
+  "doctorAvailability" : "AM",
+  "doctorAppointment" : 2
+}, {
+  "doctorName" : "nisha",
+  "patientId" : 32145,
+  "patientName" : "kunj",
+  "doctorSpecialization" : "java",
+  "doctorAvailability" : "both",
+  "doctorAppointment" : 0
+}, {
+  "doctorName" : "nisha",
+  "patientId" : 32145,
+  "patientName" : "kunj",
+  "doctorSpecialization" : "java",
+  "doctorAvailability" : "both",
+  "doctorAppointment" : 2
+} ]
