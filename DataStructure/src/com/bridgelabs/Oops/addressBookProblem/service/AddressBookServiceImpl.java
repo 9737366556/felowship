@@ -6,11 +6,18 @@ import com.bridgelabs.Oops.addressBookProblem.dto.AddressBookDTO;
 import com.bridgelabs.utility.DataStructureUtility;
 import com.bridgelabs.utility.Utility;
 
+/**
+ * purpose : Implementation of method of service interface
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class AddressBookServiceImpl implements AddressBookService {
 
 	AddressBookDTO dto = new AddressBookDTO();
 
 	@Override
+	// add new address
 	public List<AddressBookDTO> addAddress(List<AddressBookDTO> list) {
 		try {
 			System.out.println("Enter First name");
@@ -38,6 +45,7 @@ public class AddressBookServiceImpl implements AddressBookService {
 	}
 
 	@Override
+	// remove address from list base on name
 	public List<AddressBookDTO> removeShare(List<AddressBookDTO> list, String name) {
 		try {
 			int i = 0;
@@ -62,6 +70,7 @@ public class AddressBookServiceImpl implements AddressBookService {
 	}
 
 	@Override
+	// edit address base on name
 	public List<AddressBookDTO> editAddress(List<AddressBookDTO> list, String name) {
 		for (AddressBookDTO dto : list) {
 			if (dto.getfName().equalsIgnoreCase(name)) {
@@ -74,31 +83,37 @@ public class AddressBookServiceImpl implements AddressBookService {
 
 					switch (choise) {
 					case 1:
+						// edit last name
 						System.out.println("Enter last name");
 						dto.setlName(DataStructureUtility.stringInput());
 						break;
 
 					case 2:
+						// edit address
 						System.out.println("Enter address");
 						dto.setAddress(DataStructureUtility.stringInput());
 						break;
 
 					case 3:
+						// Edit city name 
 						System.out.println("Enter city name");
 						dto.setCity(DataStructureUtility.stringInput());
 						break;
 
 					case 4:
+						// Edit state name
 						System.out.println("Enter state name");
 						dto.setState(DataStructureUtility.stringInput());
 						break;
 
 					case 5:
+						// edit pincod 
 						System.out.println("Enter pincode number");
 						dto.setZip(Utility.integerInput());
 						break;
 
 					case 6:
+						// Edit number
 						System.out.println("Enter number");
 						dto.setNumber(DataStructureUtility.longInput());
 						break;
@@ -123,6 +138,7 @@ public class AddressBookServiceImpl implements AddressBookService {
 	}
 
 	@Override
+	// function for sort by zip code
 	public List<AddressBookDTO> sortByZip(List<AddressBookDTO> list) {
 
 		for (int i = 0; i < list.size(); i++) {
@@ -138,6 +154,7 @@ public class AddressBookServiceImpl implements AddressBookService {
 	}
 
 	@Override
+	// sort by last name
 	public List<AddressBookDTO> sortByLName(List<AddressBookDTO> list) {
 		for (int i = 0; i < list.size(); i++) {
 			for (int j = 0; j < list.size(); j++) {

@@ -6,12 +6,17 @@ import java.util.List;
 import com.bridgelabs.Oops.dataManagement.controller.InventoryController;
 import com.bridgelabs.Oops.dataManagement.dto.InventoryDto;
 
+/**
+ * purpose : Main function of Inventory Management 
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class Tester {
 	public static void main(String[] args) {
 
 		InventoryController controller = new InventoryController();
-		InventoryDto dto = new InventoryDto();
-
+		// read file and print all the data of different inventory
 		try {
 			List<InventoryDto> list = controller.readFile();
 			for (InventoryDto iDTO : list) {

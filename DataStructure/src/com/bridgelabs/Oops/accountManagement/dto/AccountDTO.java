@@ -1,5 +1,12 @@
 package com.bridgelabs.Oops.accountManagement.dto;
 
+
+/**
+ * Purpose : For Data transfer from server to json
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class AccountDTO {
 
 	private String name;

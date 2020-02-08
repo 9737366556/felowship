@@ -1,8 +1,9 @@
-[
-	{
-	"name":"infosys",
-	"numOfShare":10,
-	"prise":120
-
-	}
-]
+[ {
+  "name" : "bridgelabs",
+  "numOfShare" : 100,
+  "prise" : 1000.0
+}, {
+  "name" : "infosys",
+  "numOfShare" : 100,
+  "prise" : 6876.0
+} ]

@@ -7,41 +7,44 @@ import com.bridgelabs.Oops.dataManagement.dto.InventoryDto;
 import com.bridgelabs.Oops.dataManagement.service.InventoryService;
 import com.bridgelabs.utility.Utility;
 
+/**
+ * purpose : Main function of Inventory Management
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class ModifyInventoryTester {
 	public static void main(String[] args) {
 		try {
 			InventoryController controller = new InventoryController();
-			InventoryDto dto = new InventoryDto();
 			InventoryService service = new InventoryService();
 			int choice = 0;
 
 			do {
 				System.out.println("Chose from following option");
 				System.out.println("1.AddInventory \t 2.RemoveInventory \t 3.CalculationInventory");
+				List<InventoryDto> read = controller.readFile();
 				choice = Utility.integerInput();
 				if (choice <= 3 && choice >= 1) {
 
 					switch (choice) {
 					case 1:
-						List<InventoryDto> read1 = controller.readFile();
-						List<InventoryDto> list1 = service.addInventory(read1);
+						// for add inventory
+						List<InventoryDto> list1 = service.addInventory(read);
+						// write jsonFile
 						controller.writeFile(list1);
 						break;
 
 					case 2:
-						List<InventoryDto> read2 = controller.readFile();
-						List<InventoryDto> list2 = service.removeInventory(read2);
+						// for removing the inventory
+						List<InventoryDto> list2 = service.removeInventory(read);
+						// write jsonFile
 						controller.writeFile(list2);
 						break;
 
 					case 3:
-						List<InventoryDto> read3 = controller.readFile();
-						List<InventoryDto> list3 = service.calculationInventory(read3);
-						controller.writeFile(list3);
-						break;
-
-					default:
-						System.out.println("enter valid choise");
+						// fot calculate total of inventory
+						service.calculationInventory(read);
 						break;
 					}
 				} else
@@ -52,7 +55,8 @@ public class ModifyInventoryTester {
 					continue;
 				else {
 					System.out.println("thank you");
-					break;}
+					break;
+				}
 			} while (choice <= 3 && choice >= 1);
 
 		} catch (Exception e) {

@@ -2,6 +2,7 @@ package com.bridgelabs.utility;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 
 /**
  * Purpose: To reused code
@@ -11,7 +12,7 @@ import java.io.PrintWriter;
  * @param <E>
  * 
  */
-public class LinkedListUtility<E> {
+public class LinkedListUtility<E> implements Iterable<T>{
 
 	// node object
 	class Node<E> {
@@ -200,5 +201,11 @@ public class LinkedListUtility<E> {
 			count ++;
 		}
 		return count;
+	}
+
+	@Override
+	public Iterator iterator() {
+		
+		return null;
 	}
 }

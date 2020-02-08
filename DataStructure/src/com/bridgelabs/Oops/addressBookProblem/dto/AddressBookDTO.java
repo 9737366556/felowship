@@ -1,7 +1,11 @@
 package com.bridgelabs.Oops.addressBookProblem.dto;
 
-import java.io.Serializable;
-
+/**
+ * purpose : To transfer the data from server to the jsonFile
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class AddressBookDTO implements Comparable<AddressBookDTO> {
 	private String fName;
 	private String lName;

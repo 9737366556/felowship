@@ -1,5 +1,11 @@
 package com.bridgelabs.Oops.cliniqueManagement.dto;
 
+/**
+ * purpose : To transfer the data from server to the jsonFile
+ * 
+ * @author Nikunj Balar
+ *
+ */
 public class DoctorsDTO {
 
 	private String name;
