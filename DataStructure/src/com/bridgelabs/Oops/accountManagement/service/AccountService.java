@@ -20,12 +20,12 @@ public class AccountService {
 	public List<AccountDTO> addShare(List<AccountDTO> list) {
 		try {
 			System.out.println("Enter Share name");
-			dto.setName(DataStructureUtility.stringInput());
+			cDto.setName(DataStructureUtility.stringInput());
 			System.out.println("Enter number of share ");
-			dto.setNumOfShare(Utility.integerInput());
+			cDto.setNumOfShare(Utility.integerInput());
 			System.out.println("Enter share prise");
-			dto.setPrise(Utility.doubleInput());
-			list.add(dto);
+			cDto.setPrise(Utility.doubleInput());
+			list.add(cDto);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -79,7 +79,7 @@ public class AccountService {
 		double total;
 		try {
 			for (AccountDTO dto : list) {
-				total = dto.getNumOfShare() * dto.getPrise();
+				total = cDto.getNumOfShare() * cDto.getPrise();
 				shareCapital += total;
 			}
 		} catch (Exception e) {

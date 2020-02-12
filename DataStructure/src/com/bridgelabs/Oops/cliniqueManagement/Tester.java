@@ -29,17 +29,17 @@ public class Tester {
 				System.out.println("All doctor name");
 				List<DoctorsDTO> dList = controller.readDocFile();
 				for (DoctorsDTO dto : dList) 
-					System.out.println(dto.getName());
+					System.out.println(cDto.getName());
 				// showing all patient name 
 				System.out.println("All patient name");
 				List<PatientsDTO> pList = controller.readPetFile();
 				for (PatientsDTO dto : pList) 
-					System.out.println(dto.getName());
+					System.out.println(cDto.getName());
 				// showing all appoint for doctor
 				System.out.println("All Appointment for doctor");
 				List<AppointmentDTO> aList = controller.readApFile();
 				for (AppointmentDTO dto : aList)
-					System.out.println(dto.getDoctorName());
+					System.out.println(cDto.getDoctorName());
 				System.out.println("chose from following");
 				System.out.println(
 						"1.AddDoctor \t2.AddPatient \t3.showDoctorsDetails \t4.showPatientsDetails \t5.TakeAppointment \n6.showAppointment \t7.declineAppointment");

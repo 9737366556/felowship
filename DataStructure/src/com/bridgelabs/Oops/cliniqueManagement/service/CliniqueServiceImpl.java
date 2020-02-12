@@ -101,8 +101,8 @@ public class CliniqueServiceImpl implements CliniqueService {
 	// function for print particular appointment details base on patient id
 	public void appointmentDetails(List<AppointmentDTO> list, int patientID) {
 		for (AppointmentDTO dto : list) {
-			if (dto.getPatientId() == patientID) {
-				System.out.println(dto);
+			if (cDto.getPatientId() == patientID) {
+				System.out.println(cDto);
 			}
 		}
 	}
@@ -112,8 +112,8 @@ public class CliniqueServiceImpl implements CliniqueService {
 	public List<AppointmentDTO> declineAppointment(List<AppointmentDTO> list, int patientID) {
 		int temp = 0;
 		for (AppointmentDTO dto : list) {
-			if (dto.getPatientId() == patientID) {
-				System.out.println(dto);
+			if (cDto.getPatientId() == patientID) {
+				System.out.println(cDto);
 				// for conformation of cancel appointment 
 				System.out.println("you want to reject your appointment that press 1 else press any number");
 				int n = Utility.integerInput();

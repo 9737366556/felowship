@@ -8,19 +8,11 @@ package com.bridgelabs.Oops.commercialDataProcessing.dto;
  */
 public class TransectionDTO {
 
-	private String cusName;
 	private String companyName;
 	private int noOfShare;
 	private double price;
 	private String dateTime;
 	
-	public String getCusName() {
-		return cusName;
-	}
-
-	public void setCusName(String cusName) {
-		this.cusName = cusName;
-	}
 
 	public String getCompanyName() {
 		return companyName;
@@ -56,7 +48,7 @@ public class TransectionDTO {
 
 	@Override
 	public String toString() {
-		return "cusName=" + cusName + "\ncompanyName=" + companyName + "\nnoOfShare=" + noOfShare
+		return "companyName=" + companyName + "\nnoOfShare=" + noOfShare
 				+ "\nprice=" + price + "\ndateTime=" + dateTime +"\n";
 	}
 }

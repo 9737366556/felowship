@@ -21,21 +21,21 @@ public class AddressBookServiceImpl implements AddressBookService {
 	public List<AddressBookDTO> addAddress(List<AddressBookDTO> list) {
 		try {
 			System.out.println("Enter First name");
-			dto.setfName(DataStructureUtility.stringInput());
+			cDto.setfName(DataStructureUtility.stringInput());
 			System.out.println("Enter Last name");
-			dto.setlName(DataStructureUtility.stringInput());
+			cDto.setlName(DataStructureUtility.stringInput());
 			System.out.println("Enter address");
-			dto.setAddress(DataStructureUtility.stringInput());
+			cDto.setAddress(DataStructureUtility.stringInput());
 			System.out.println("Enter city name");
-			dto.setCity(DataStructureUtility.stringInput());
+			cDto.setCity(DataStructureUtility.stringInput());
 			System.out.println("Enter state name");
-			dto.setState(DataStructureUtility.stringInput());
+			cDto.setState(DataStructureUtility.stringInput());
 			System.out.println("Enter pincode");
-			dto.setZip(Utility.integerInput());
+			cDto.setZip(Utility.integerInput());
 			System.out.println("Enter your phone number");
-			dto.setNumber(DataStructureUtility.longInput());
-			list.add(dto);
-			System.out.println(dto);
+			cDto.setNumber(DataStructureUtility.longInput());
+			list.add(cDto);
+			System.out.println(cDto);
 		} catch (Exception e) {
 			System.err.println("you have an exception in addAddress function of AddressBookServiceImpl" + e.getClass());
 			System.err.println(e.getMessage());
@@ -73,7 +73,7 @@ public class AddressBookServiceImpl implements AddressBookService {
 	// edit address base on name
 	public List<AddressBookDTO> editAddress(List<AddressBookDTO> list, String name) {
 		for (AddressBookDTO dto : list) {
-			if (dto.getfName().equalsIgnoreCase(name)) {
+			if (cDto.getfName().equalsIgnoreCase(name)) {
 				System.out.println("Address found ... ");
 				int choise = 0;
 				do {
@@ -85,37 +85,37 @@ public class AddressBookServiceImpl implements AddressBookService {
 					case 1:
 						// edit last name
 						System.out.println("Enter last name");
-						dto.setlName(DataStructureUtility.stringInput());
+						cDto.setlName(DataStructureUtility.stringInput());
 						break;
 
 					case 2:
 						// edit address
 						System.out.println("Enter address");
-						dto.setAddress(DataStructureUtility.stringInput());
+						cDto.setAddress(DataStructureUtility.stringInput());
 						break;
 
 					case 3:
 						// Edit city name 
 						System.out.println("Enter city name");
-						dto.setCity(DataStructureUtility.stringInput());
+						cDto.setCity(DataStructureUtility.stringInput());
 						break;
 
 					case 4:
 						// Edit state name
 						System.out.println("Enter state name");
-						dto.setState(DataStructureUtility.stringInput());
+						cDto.setState(DataStructureUtility.stringInput());
 						break;
 
 					case 5:
 						// edit pincod 
 						System.out.println("Enter pincode number");
-						dto.setZip(Utility.integerInput());
+						cDto.setZip(Utility.integerInput());
 						break;
 
 					case 6:
 						// Edit number
 						System.out.println("Enter number");
-						dto.setNumber(DataStructureUtility.longInput());
+						cDto.setNumber(DataStructureUtility.longInput());
 						break;
 
 					default:
@@ -130,8 +130,8 @@ public class AddressBookServiceImpl implements AddressBookService {
 
 	public void showAddress(List<AddressBookDTO> list, String name) {
 		for (AddressBookDTO dto : list) {
-			if (dto.getfName().equalsIgnoreCase(name)) {
-				System.out.println(dto);
+			if (cDto.getfName().equalsIgnoreCase(name)) {
+				System.out.println(cDto);
 				break;
 			}
 		}

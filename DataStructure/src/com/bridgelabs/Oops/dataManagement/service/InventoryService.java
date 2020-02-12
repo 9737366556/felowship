@@ -20,13 +20,13 @@ public class InventoryService {
 	public List<InventoryDto> addInventory(List<InventoryDto> list) {
 		try {
 			System.out.println("Enter Name of inventory");
-			dto.setName(s.nextLine());
+			cDto.setName(s.nextLine());
 			System.out.println("Enter price of inventory per kg");
-			dto.setPrice(Utility.doubleInput());
+			cDto.setPrice(Utility.doubleInput());
 			System.out.println("Enter quantity of inventory in kg");
-			dto.setQuantity(Utility.integerInput());
+			cDto.setQuantity(Utility.integerInput());
 			// add inventory into list
-			list.add(dto);
+			list.add(cDto);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -36,10 +36,10 @@ public class Tester {
 				for (CustomerDTO cusDTO : cusList)
 					System.out.println(cusDTO.getCusName());
 				// printing all transaction 
-				System.out.println("All Transaction of customer");
-				List<TransectionDTO> tranlist = controller.readTransaction();
-				for (TransectionDTO traDTO : tranlist)
-					System.out.println(traDTO.getCusName());
+				System.out.println("All Transaction of company");
+				List<TransectionDTO> tranList = controller.readTransaction();
+				for (TransectionDTO traDTO : tranList)
+					System.out.println(traDTO.getCompanyName());
 				System.out.println("chose from following choise");
 				System.out.println(
 						"1.addCompany \t2.Show all Company details \t3.transaction of customer \t4.customer of company \t5.buyshare \t6.sellshare");
@@ -62,7 +62,7 @@ public class Tester {
 						// showing transaction of particular customer
 						System.out.println("Enter customer name");
 						String cusName = DataStructureUtility.stringInput();
-						service.transactionOf(tranlist, cusName);
+						service.transactionOf(tranList, cusName);
 						break;
 
 					case 4:
@@ -73,9 +73,16 @@ public class Tester {
 						break;
 
 					case 5:
-						// to do transaction
-						//List<TransectionDTO> tralist = service.addTransaction();
-						//controller.writeTransaction(tralist);
+						// for buy new sahre
+						List<TransectionDTO > list5 = service.buyShare(comList, tranList);
+						controller.writeTransaction(list5);
+						break;
+						
+					case 6 :
+						// for sell share
+						List<TransectionDTO> list6= service.sellShare(comList, tranList);
+						controller.writeTransaction(list6);
+						break;
 					}
 				} else
 					System.out.println("Enter valid choise");
