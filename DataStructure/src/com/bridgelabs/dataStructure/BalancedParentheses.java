@@ -1,5 +1,6 @@
 package com.bridgelabs.dataStructure;
 
+import com.bridgelabs.utility.DataStructureUtility;
 import com.bridgelabs.utility.Utility;
 
 
@@ -15,7 +16,7 @@ public class BalancedParentheses {
 			System.out.println("Enter input");
 			String line = Utility.stringInput();
 			// calling balanceParentheses and it return boolean value
-			boolean balanced=Utility.balanceParentheses(line);
+			boolean balanced=DataStructureUtility.balanceParentheses(line);
 			
 			// if return true than parenthesis are balanced
 			if (balanced) 

@@ -92,7 +92,7 @@ public class LogicalUtility {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^dayOfWeek^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// function To find day of week
-	public static int dayOfWeek(short d, short m, short y) {
+	public static int dayOfWeek(int d, int m, int y) {
 		int year = y - (14 - m) / 12;
 		int x = year + year / 4 - year / 100 + year / 400;
 		int month = m + 12 * ((14 - m) / 12) - 2;

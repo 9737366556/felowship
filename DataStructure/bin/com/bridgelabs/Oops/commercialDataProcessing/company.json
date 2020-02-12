@@ -1,0 +1,9 @@
+[ {
+  "companyName" : "joker",
+  "noOfShare" : 2000,
+  "price" : 200.2
+}, {
+  "companyName" : "hasi",
+  "noOfShare" : 5000,
+  "price" : 20.0
+} ]

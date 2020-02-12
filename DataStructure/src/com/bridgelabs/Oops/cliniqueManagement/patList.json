@@ -1,0 +1,26 @@
+[ {
+  "name" : "kunj",
+  "iD" : 1,
+  "mobileNumber" : 9737366556,
+  "age" : 21
+}, {
+  "name" : "marvin",
+  "iD" : 2,
+  "mobileNumber" : 9558889962,
+  "age" : 23
+}, {
+  "name" : "nikunj",
+  "iD" : 3,
+  "mobileNumber" : 7854512546,
+  "age" : 21
+}, {
+  "name" : "sahil",
+  "iD" : 4,
+  "mobileNumber" : 9737366556,
+  "age" : 24
+}, {
+  "name" : "paras",
+  "iD" : 5,
+  "mobileNumber" : 8899776655,
+  "age" : 25
+} ]

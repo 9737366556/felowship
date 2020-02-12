@@ -2,6 +2,7 @@ package com.bridgelabs.utility;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 
 /**
  * Purpose: To reused code
@@ -11,7 +12,7 @@ import java.io.PrintWriter;
  * @param <E>
  * 
  */
-public class LinkedListUtility<E> {
+public class LinkedListUtility<E> implements Iterable<T>{
 
 	// node object
 	class Node<E> {
@@ -135,7 +136,7 @@ public class LinkedListUtility<E> {
 			find = true;
 			index = count;
 		}
-		return index;
+		return index-1;
 	}
 
 	// function to print into external file
@@ -157,7 +158,7 @@ public class LinkedListUtility<E> {
 	}
 
 	// function to delet last object and return that object
-	public <E> E pop() {
+	public <E> E delet() {
 		Node node = head;
 		Node n = null;
 		while (node.next.next != null) {
@@ -190,5 +191,21 @@ public class LinkedListUtility<E> {
 		}
 		System.out.println(comparable);
 		return comparable;
+	}
+
+	public int size() {
+		Node node =head;
+		int count=1;
+		while (node.next != null) {
+			node = node.next;
+			count ++;
+		}
+		return count;
+	}
+
+	@Override
+	public Iterator iterator() {
+		
+		return null;
 	}
 }

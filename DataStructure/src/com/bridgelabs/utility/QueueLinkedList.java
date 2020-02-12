@@ -1,5 +1,16 @@
 package com.bridgelabs.utility;
 
+
+
+/**
+ * Purpose : To enter the data into queue using linked list
+ * 			for fifo type transaction 
+ * 
+ * 
+ * @author Nikunj Balar
+ *
+ * @param <E>
+ */
 public class QueueLinkedList<E> {
 
 	class Node<E> {
@@ -11,6 +22,8 @@ public class QueueLinkedList<E> {
 	Node last;
 	int size;
 
+	// function for enter object into list
+	// return node object
 	public <E> Node getNewNode(E data) {
 		Node a = new Node();
 		a.data = data;
@@ -18,6 +31,7 @@ public class QueueLinkedList<E> {
 		return a;
 	}
 
+	// function to enter object into queue 
 	public <E> void inserst(E data) {
 		if (last == null) {
 			first = last = getNewNode(data);
@@ -29,6 +43,7 @@ public class QueueLinkedList<E> {
 		last = last.next;
 	}
 	
+	// function to remove first queue object
 	public <E> Object removeFirst() {
 		if(isEmpty() != true) {
 			size--;
@@ -41,6 +56,7 @@ public class QueueLinkedList<E> {
 		return null;
 	}
 
+	//function to show queue
 	public <E> void show() {
 		Node<E> node = first;
 		System.out.print("["); // Starting list from '[' Parentheses
@@ -52,22 +68,27 @@ public class QueueLinkedList<E> {
 
 	}
 	
+	// return first objectl
 	public <E> Object first() {
 		if(first != null)
 			return first.data;
 		return null;
 	}
 	
+	//return last queue object 
 	public <E> Object last() {
 		if(last != null)
 			return last.data;
 		return null;
 	}
 
+	//return size of the queue
 	public <E> int size() {
 		return size;
 	}
 	
+	// function to check queue is empty or not
+	//return true if not empty else return false
 	public <E> Boolean isEmpty() {
 		if(last == null)
 			return true;
